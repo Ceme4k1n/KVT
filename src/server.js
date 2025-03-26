@@ -132,3 +132,71 @@ app.listen(port, () => {
   logger.info(`Сервер запущен на порту ${port}`)
   initModbus()
 })
+
+const ModbusRTU = require('modbus-serial')
+
+// Создание экземпляра клиента Modbus
+const client = new ModbusRTU()
+
+// Массив для хранения данных с датчиков
+const sensorData = []
+
+// Функция для подключения и чтения данных
+async function startReading() {
+  try {
+    // Подключение к устройству через последовательный порт
+    await client.connectRTU('COM4', {
+      baudRate: 115200,
+      parity: 'none',
+      stopBits: 1,
+      dataBits: 8,
+    })
+    console.log('Подключение к Modbus устройству успешно')
+
+    await client.setID(1)
+
+    setInterval(async () => {
+      // Очищаем массив данных перед очередным считыванием
+      sensorData.length = 0
+
+      for (let i = 0; i < 10; i++) {
+        const temperatureAddress = 30000 + i * 2 // Температура
+        const humidityAddress = 30001 + i * 2 // Влага
+
+        try {
+          const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
+          const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
+
+          // Создаем объект с данными датчика
+          const sensor = {
+            id: i + 1,
+            temperature: temperatureData.data[0] / 256,
+            humidity: humidityData.data[0] / 256,
+          }
+
+          // Добавляем объект в массив данных
+          sensorData.push(sensor)
+        } catch (err) {
+          console.error(`Ошибка при чтении датчика ${i + 1}: ${err.message}`)
+        }
+      }
+
+      // Выводим собранные данные с датчиков
+      console.log('Данные с датчиков:', sensorData)
+    }, 5000)
+  } catch (err) {
+    console.error('Ошибка при подключении:', err)
+  }
+}
+
+// Запуск функции
+startReading()
+
+// Обработка завершения процесса
+process.on('SIGINT', () => {
+  client.close(() => {
+    console.log('Соединение закрыто')
+    process.exit()
+  })
+})
+
