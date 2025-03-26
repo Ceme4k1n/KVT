@@ -4,7 +4,12 @@ const winston = require('winston')
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
-  transports: [new winston.transports.File({ filename: 'logs/modbus.log' })],
+  transports: [
+    new winston.transports.File({ filename: 'logs/modbus.log' }),
+    new winston.transports.Console({
+      format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
+    }),
+  ],
 })
 
 class ModbusClient {
@@ -12,6 +17,7 @@ class ModbusClient {
     this.sensorCount = sensorCount
     this.sensorData = []
     this.isConnected = false
+    logger.info(`Инициализация эмулятора Modbus с ${sensorCount} датчиками`)
   }
 
   async connect() {
@@ -50,13 +56,19 @@ class ModbusClient {
       const humidity = this.randomInRange(30, 70) // Влажность от 30 до 70%
       const status = this.randomStatus()
 
-      return {
+      const data = {
         id: sensorNumber,
         temperature: temperature,
         humidity: humidity,
         status: status,
         timestamp: new Date().toISOString(),
       }
+
+      // Логирование данных датчика
+      const statusText = status === 0 ? 'Норма' : status === 1 ? 'Предупреждение' : 'Ошибка'
+      logger.info(`Датчик ${sensorNumber}: Температура=${temperature.toFixed(1)}°C, Влажность=${humidity.toFixed(1)}%, Статус=${statusText}`)
+
+      return data
     } catch (err) {
       logger.error(`Ошибка при чтении датчика ${sensorNumber}:`, err)
       return null
@@ -78,6 +90,13 @@ class ModbusClient {
 
     const results = await Promise.all(promises)
     this.sensorData = results.filter((data) => data !== null)
+
+    // Логирование общего состояния
+    const normalCount = this.sensorData.filter((s) => s.status === 0).length
+    const warningCount = this.sensorData.filter((s) => s.status === 1).length
+    const errorCount = this.sensorData.filter((s) => s.status === 2).length
+
+    logger.info(`Общее состояние: Норма=${normalCount}, Предупреждения=${warningCount}, Ошибки=${errorCount}`)
 
     return this.sensorData
   }

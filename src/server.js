@@ -1,7 +1,9 @@
 const express = require('express')
-const ModbusClient = require('./modbusClient')
 const Database = require('./database')
 const winston = require('winston')
+
+// Импорт Modbus клиента (изменить эту строку для переключения между эмулятором и реальным устройством)
+const ModbusClient = require('./modbusClientEmulator') // или './modbusClientReal'
 
 // Настройка логгера
 const logger = winston.createLogger({
