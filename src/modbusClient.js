@@ -1,93 +1,109 @@
+const ModbusRTU = require('modbus-serial')
+const express = require('express')
 const winston = require('winston')
 
-// Настройка логгера
+const app = express()
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
-  transports: [new winston.transports.File({ filename: 'logs/modbus.log' })],
+  transports: [
+    new winston.transports.File({ filename: 'logs/modbus.log' }),
+    new winston.transports.Console({
+      format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
+    }),
+  ],
 })
+// Middleware для парсинга JSON
+app.use(express.json())
 
-class ModbusClient {
-  constructor(sensorCount = 10) {
-    this.sensorCount = sensorCount
-    this.sensorData = []
-    this.isConnected = false
-  }
+// Статические файлы
+app.use(express.static('public'))
+// Создание экземпляра клиента Modbus
+const client = new ModbusRTU()
 
-  async connect() {
-    try {
-      // Имитация задержки подключения
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      this.isConnected = true
-      logger.info('Подключение к эмулированному Modbus устройству успешно')
-      return true
-    } catch (err) {
-      logger.error('Ошибка при подключении:', err)
-      return false
-    }
-  }
+// Массив для хранения данных с датчиков
+const sensorData = []
 
-  // Генерация случайного числа в заданном диапазоне
-  randomInRange(min, max) {
-    return Math.random() * (max - min) + min
-  }
+// Функция для подключения и чтения данных
+async function startReading() {
+  try {
+    await client.connectRTU('COM4', {
+      baudRate: 115200,
+      parity: 'none',
+      stopBits: 1,
+      dataBits: 8,
+    })
+    console.log('Подключение к Modbus устройству успешно')
 
-  // Генерация случайного статуса (0 - норма, 1 - предупреждение, 2 - ошибка)
-  randomStatus() {
-    const rand = Math.random()
-    if (rand < 0.8) return 0 // 80% шанс нормального статуса
-    if (rand < 0.95) return 1 // 15% шанс предупреждения
-    return 2 // 5% шанс ошибки
-  }
+    await client.setID(1)
 
-  async readSensorData(sensorNumber) {
-    try {
-      // Имитация задержки чтения
-      await new Promise((resolve) => setTimeout(resolve, 100))
-
-      // Генерация случайных данных
-      const temperature = this.randomInRange(15, 30) // Температура от 15 до 30°C
-      const humidity = this.randomInRange(30, 70) // Влажность от 30 до 70%
-      const status = this.randomStatus()
-
-      return {
-        id: sensorNumber,
-        temperature: temperature,
-        humidity: humidity,
-        status: status,
-        timestamp: new Date().toISOString(),
+    setInterval(async () => {
+      // Инициализируем массив с начальными значениями
+      for (let i = 0; i < 10; i++) {
+        if (!sensorData[i]) {
+          sensorData[i] = {
+            id: i + 1,
+            temperature: null,
+            humidity: null,
+            status: null,
+            timestamp: new Date().toISOString(),
+          }
+        }
       }
-    } catch (err) {
-      logger.error(`Ошибка при чтении датчика ${sensorNumber}:`, err)
-      return null
-    }
-  }
 
-  async readAllSensors() {
-    if (!this.isConnected) {
-      logger.error('Modbus клиент не подключен')
-      return []
-    }
+      for (let i = 0; i < 10; i++) {
+        const temperatureAddress = 30000 + i * 2 // Температура
+        const humidityAddress = 30001 + i * 2 // Влага
+        const statusAddress = 40000 + i // Статус
 
-    this.sensorData = []
-    const promises = []
+        try {
+          const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
+          const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
+          const statusData = await client.readHoldingRegisters(statusAddress, 1)
 
-    for (let i = 1; i <= this.sensorCount; i++) {
-      promises.push(this.readSensorData(i))
-    }
+          // Обновляем данные в массиве
+          sensorData[i].temperature = temperatureData.data[0] / 256
+          sensorData[i].humidity = humidityData.data[0] / 256
+          sensorData[i].status = (statusData.data[0] / 256) | 0
 
-    const results = await Promise.all(promises)
-    this.sensorData = results.filter((data) => data !== null)
+          //logger.info(`Датчик ${i + 1}: Температура=${sensorData[i].temperature}°C, Влажность=${sensorData[i].humidity}%`)
+        } catch (err) {
+          console.error(`Ошибка при чтении датчика ${i + 1}: ${err.message}`)
+        }
+      }
 
-    return this.sensorData
-  }
-
-  disconnect() {
-    if (this.isConnected) {
-      this.isConnected = false
-      logger.info('Соединение с эмулированным Modbus устройством закрыто')
-    }
+      logger.info('Данные с датчиков', sensorData)
+    }, 5000)
+  } catch (err) {
+    console.error('Ошибка при подключении:', err)
   }
 }
 
-module.exports = ModbusClient
+// Запуск функции
+startReading()
+
+// API эндпоинт для получения данных
+app.get('/api/sensors', async (req, res) => {
+  try {
+    // Возвращаем данные с датчиков
+    res.json(sensorData)
+  } catch (error) {
+    logger.error('Ошибка при получении данных с датчиков:', error)
+    res.status(500).json({ error: 'Ошибка при получении данных' })
+  }
+})
+
+// Запуск сервера
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Сервер запущен на порту ${PORT}`)
+})
+
+// Обработка завершения процесса
+process.on('SIGINT', () => {
+  client.close(() => {
+    console.log('Соединение закрыто')
+    process.exit()
+  })
+})

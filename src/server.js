@@ -2,8 +2,7 @@ const express = require('express')
 const Database = require('./database')
 const winston = require('winston')
 
-// Импорт Modbus клиента (изменить эту строку для переключения между эмулятором и реальным устройством)
-const ModbusClient = require('./modbusClientEmulator') // или './modbusClientReal'
+const ModbusClient = require('./modbusClientReal') // или './modbusClientReal'
 
 // Настройка логгера
 const logger = winston.createLogger({
@@ -16,7 +15,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // Инициализация компонентов
-const modbusClient = new ModbusClient(10) // По умолчанию КВТ-10
+const modbusClient = new ModbusClient(5) // По умолчанию КВТ-10
 const database = new Database()
 
 // Middleware для парсинга JSON
@@ -36,16 +35,6 @@ app.get('/api/sensors', async (req, res) => {
   }
 })
 
-app.get('/api/measurements', async (req, res) => {
-  try {
-    const measurements = await database.getLatestMeasurements()
-    res.json(measurements)
-  } catch (error) {
-    logger.error('Ошибка при получении измерений:', error)
-    res.status(500).json({ error: 'Ошибка при получении измерений' })
-  }
-})
-
 // Запуск сервера
 app.listen(port, async () => {
   logger.info(`Сервер запущен на порту ${port}`)
@@ -62,7 +51,7 @@ app.listen(port, async () => {
     try {
       const sensorData = await modbusClient.readAllSensors()
 
-      // Сохранение данных в базу
+      // Сохранение данных в базу (предполагая, что у вас есть метод saveMeasurement)
       for (const sensor of sensorData) {
         await database.saveMeasurement(sensor.id, sensor.temperature, sensor.humidity)
         await database.saveStatus(sensor.id, sensor.status)

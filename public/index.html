@@ -85,8 +85,6 @@
               const card = document.createElement('div')
               card.className = 'sensor-card'
 
-              const statusClass = sensor.status === 0 ? 'status-normal' : sensor.status === 1 ? 'status-warning' : 'status-error'
-
               card.innerHTML = `
                             <h3>Датчик ${sensor.id}</h3>
                             <div class="sensor-value temperature">
@@ -95,8 +93,8 @@
                             <div class="sensor-value humidity">
                                 Влажность: ${sensor.humidity.toFixed(1)}%
                             </div>
-                            <div class="status ${statusClass}">
-                                ${sensor.status === 0 ? 'Норма' : sensor.status === 1 ? 'Предупреждение' : 'Ошибка'}
+                            <div class="sensor-status">
+                                Статус: ${sensor.status.toFixed(1)}%
                             </div>
                             <div class="timestamp">
                                 ${new Date(sensor.timestamp).toLocaleString()}
@@ -109,9 +107,8 @@
           .catch((error) => console.error('Ошибка при получении данных:', error))
       }
 
-      // Обновление данных каждые 1.5 секунды
-      setInterval(updateSensors, 1500)
-      // Начальное обновление
+      // Обновление данных каждые 5 секунд
+      setInterval(updateSensors, 5000)
       updateSensors()
     </script>
   </body>
