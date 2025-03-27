@@ -65,11 +65,35 @@
         color: #666;
         margin-top: 10px;
       }
+      /* Добавим стили для кнопок */
+      .nav-buttons {
+        margin-bottom: 20px;
+      }
+      .nav-button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        text-decoration: none; /* Убираем подчеркивание */
+      }
+      .nav-button:hover {
+        background-color: #2980b9;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>КВТ - Система измерения температуры и влажности</h1>
+
+      <!-- Навигационные кнопки -->
+      <div class="nav-buttons">
+        <a href="logs.html" class="nav-button">Логи</a>
+        <a href="index.html" class="nav-button">Датчики</a>
+      </div>
+
       <div class="sensors-grid" id="sensorsGrid"></div>
     </div>
 
@@ -94,7 +118,7 @@
                                 Влажность: ${sensor.humidity.toFixed(1)}%
                             </div>
                             <div class="sensor-status">
-                                Статус: ${sensor.status.toFixed(1)}%
+                                Статус: ${sensor.status.toFixed(1)}
                             </div>
                             <div class="timestamp">
                                 ${new Date(sensor.timestamp).toLocaleString()}
