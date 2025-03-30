@@ -1,6 +1,9 @@
 const ModbusRTU = require('modbus-serial')
 const express = require('express')
 const winston = require('winston')
+const pool = require('./config/database')
+const fs = require('fs')
+const path = require('path')
 
 const app = express()
 
@@ -24,6 +27,19 @@ const client = new ModbusRTU()
 
 // Массив для хранения данных с датчиков
 const sensorData = []
+
+// Функция для сохранения данных в MySQL
+async function saveToDatabase(data) {
+  try {
+    const connection = await pool.getConnection()
+    for (const sensor of data) {
+      await connection.execute('INSERT INTO sensor_data (sensor_id, temperature, humidity, status, timestamp) VALUES (?, ?, ?, ?, ?)', [sensor.id, sensor.temperature, sensor.humidity, sensor.status, new Date(sensor.timestamp)])
+    }
+    connection.release()
+  } catch (error) {
+    console.error('Ошибка при сохранении в базу данных:', error)
+  }
+}
 
 // Функция для подключения и чтения данных
 async function startReading() {
@@ -71,6 +87,8 @@ async function startReading() {
       }
 
       logger.info('Данные с датчиков', sensorData)
+      // Сохраняем данные в базу
+      await saveToDatabase(sensorData)
     }, 5000)
   } catch (err) {
     console.error('Ошибка при подключении:', err)
@@ -88,6 +106,27 @@ app.get('/api/sensors', async (req, res) => {
   } catch (error) {
     logger.error('Ошибка при получении данных с датчиков:', error)
     res.status(500).json({ error: 'Ошибка при получении данных' })
+  }
+})
+
+// API эндпоинт для получения логов
+app.get('/api/logs', (req, res) => {
+  try {
+    const logFile = path.join(__dirname, '../logs/modbus.log')
+    const logs = fs
+      .readFileSync(logFile, 'utf8')
+      .split('\n')
+      .filter((line) => line.trim())
+      .map((line) => {
+        try {
+          return JSON.parse(line)
+        } catch (e) {
+          return line
+        }
+      })
+    res.json(logs)
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка при чтении логов' })
   }
 })
 

@@ -26,14 +26,44 @@
         background-color: #3498db;
         color: white;
         cursor: pointer;
-        text-decoration: none; /* Убираем подчеркивание */
+        text-decoration: none;
       }
       .nav-button:hover {
         background-color: #2980b9;
       }
       .log-entry {
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .sensor-data {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .sensor-item {
         padding: 10px;
-        border-bottom: 1px solid #ccc;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+      }
+      .timestamp {
+        color: #666;
+        font-size: 0.9em;
+      }
+      .refresh-button {
+        padding: 10px 20px;
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      .refresh-button:hover {
+        background-color: #27ae60;
       }
     </style>
   </head>
@@ -46,23 +76,66 @@
         <a href="index.html" class="nav-button">Датчики</a>
       </div>
 
+      <button class="refresh-button" onclick="fetchLogs()">Обновить логи</button>
       <div id="logContainer"></div>
     </div>
 
     <script>
-      function fetchLogs() {
-        // В этом примере просто загружаем фиктивные логи
-        const logs = ['Лог 1: Датчик 1 - Успешное считывание', 'Лог 2: Датчик 2 - Успешное считывание', 'Лог 3: Ошибка при считывании датчика 3']
-
-        const logContainer = document.getElementById('logContainer')
-        logs.forEach((log) => {
-          const entry = document.createElement('div')
-          entry.className = 'log-entry'
-          entry.textContent = log
-          logContainer.appendChild(entry)
-        })
+      function formatTimestamp(timestamp) {
+        return new Date(timestamp).toLocaleString('ru-RU')
       }
 
+      function createSensorDataHTML(sensorData) {
+        return `
+          <div class="sensor-data">
+            ${Object.entries(sensorData)
+              .filter(([key]) => key !== 'level' && key !== 'message' && key !== 'timestamp')
+              .map(
+                ([key, value]) => `
+                <div class="sensor-item">
+                  <strong>Датчик ${key}:</strong><br>
+                  Температура: ${value.temperature}°C<br>
+                  Влажность: ${value.humidity}%<br>
+                  Статус: ${value.status}
+                </div>
+              `
+              )
+              .join('')}
+          </div>
+        `
+      }
+
+      function fetchLogs() {
+        fetch('/api/logs')
+          .then((response) => response.json())
+          .then((logs) => {
+            const logContainer = document.getElementById('logContainer')
+            logContainer.innerHTML = ''
+
+            logs.forEach((log) => {
+              const entry = document.createElement('div')
+              entry.className = 'log-entry'
+
+              if (typeof log === 'string') {
+                entry.textContent = log
+              } else {
+                entry.innerHTML = `
+                  <div class="timestamp">${formatTimestamp(log.timestamp)}</div>
+                  <div class="message">${log.message}</div>
+                  ${createSensorDataHTML(log)}
+                `
+              }
+
+              logContainer.appendChild(entry)
+            })
+          })
+          .catch((error) => {
+            console.error('Ошибка при получении логов:', error)
+            document.getElementById('logContainer').innerHTML = '<div class="log-entry">Ошибка при загрузке логов</div>'
+          })
+      }
+
+      // Загружаем логи при загрузке страницы
       fetchLogs()
     </script>
   </body>
