@@ -65,7 +65,7 @@
         color: #666;
         margin-top: 10px;
       }
-      /* Добавим стили для кнопок */
+      /* Стили для навигационных кнопок */
       .nav-buttons {
         margin-bottom: 20px;
       }
@@ -82,13 +82,46 @@
       .nav-button:hover {
         background-color: #2980b9;
       }
+
+      /* Стили для модального окна */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>КВТ - Система измерения температуры и влажности</h1>
 
-      <!-- Навигационные кнопки -->
       <div class="nav-buttons">
         <a href="logs.html" class="nav-button">Логи</a>
         <a href="index.html" class="nav-button">Датчики</a>
@@ -97,7 +130,28 @@
       <div class="sensors-grid" id="sensorsGrid"></div>
     </div>
 
+    <!-- Модальное окно для изменения данных датчиков -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Изменить информацию о датчике</h2>
+        <label for="sensorName">Название датчика:</label>
+        <input type="text" id="sensorName" />
+        <label for="temperatureMin">Минимальная температура:</label>
+        <input type="number" id="temperatureMin" />
+        <label for="temperatureMax">Максимальная температура:</label>
+        <input type="number" id="temperatureMax" />
+        <label for="humidityMin">Минимальная влажность:</label>
+        <input type="number" id="humidityMin" />
+        <label for="humidityMax">Максимальная влажность:</label>
+        <input type="number" id="humidityMax" />
+        <button id="saveBtn">Сохранить</button>
+      </div>
+    </div>
+
     <script>
+      let currentSensorId = null // Для хранения id текущего датчика
+
       function updateSensors() {
         fetch('/api/sensors')
           .then((response) => response.json())
@@ -110,20 +164,21 @@
               card.className = 'sensor-card'
 
               card.innerHTML = `
-                            <h3>Датчик ${sensor.id}</h3>
-                            <div class="sensor-value temperature">
-                                Температура: ${sensor.temperature.toFixed(1)}°C
-                            </div>
-                            <div class="sensor-value humidity">
-                                Влажность: ${sensor.humidity.toFixed(1)}%
-                            </div>
-                            <div class="sensor-status">
-                                Статус: ${sensor.status.toFixed(1)}
-                            </div>
-                            <div class="timestamp">
-                                ${new Date(sensor.timestamp).toLocaleString()}
-                            </div>
-                        `
+                          <h3>Датчик ${sensor.id} - ${sensor.name}</h3> <!-- Изменили вывод так, чтобы показывало имя -->
+                          <div class="sensor-value temperature">
+                              Температура: ${sensor.temperature.toFixed(1)}°C
+                          </div>
+                          <div class="sensor-value humidity">
+                              Влажность: ${sensor.humidity.toFixed(1)}%
+                          </div>
+                          <div class="sensor-status">
+                              Статус: ${sensor.status.toFixed(1)}
+                          </div>
+                          <div class="timestamp">
+                              ${new Date(sensor.timestamp).toLocaleString()}
+                          </div>
+                          <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
+                      `
 
               grid.appendChild(card)
             })
@@ -131,8 +186,51 @@
           .catch((error) => console.error('Ошибка при получении данных:', error))
       }
 
+      function openModal(sensorId, sensorName) {
+        currentSensorId = sensorId // Сохраняем id текущего датчика
+        document.getElementById('sensorName').value = sensorName
+        // Здесь можно также заполнить поля для пороговых значений, если нужно!
+        document.getElementById('myModal').style.display = 'block'
+      }
+
+      document.getElementById('closeModal').onclick = function () {
+        document.getElementById('myModal').style.display = 'none'
+      }
+
+      document.getElementById('saveBtn').onclick = function () {
+        const name = document.getElementById('sensorName').value
+        const temperatureMin = document.getElementById('temperatureMin').value
+        const temperatureMax = document.getElementById('temperatureMax').value
+        const humidityMin = document.getElementById('humidityMin').value
+        const humidityMax = document.getElementById('humidityMax').value
+
+        const data = {
+          id: currentSensorId,
+          name: name,
+          temperatureMin: temperatureMin,
+          temperatureMax: temperatureMax,
+          humidityMin: humidityMin,
+          humidityMax: humidityMax,
+        }
+
+        fetch('/api/sensors', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Успешно сохранено:', data)
+            updateSensors()
+            document.getElementById('myModal').style.display = 'none'
+          })
+          .catch((error) => console.error('Ошибка при сохранении:', error))
+      }
+
       // Обновление данных каждые 5 секунд
-      setInterval(updateSensors, 4000)
+      setInterval(updateSensors, 5000)
       updateSensors()
     </script>
   </body>

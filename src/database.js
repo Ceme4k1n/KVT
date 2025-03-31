@@ -62,6 +62,21 @@ class Database {
     })
   }
 
+  saveSensorName(sensorId, name) {
+    return new Promise((resolve, reject) => {
+      this.db.run('INSERT OR REPLACE INTO sensors (id, name) VALUES (?, ?)', [sensorId, name], (err) => {
+        console.log(sensorId, name)
+
+        if (err) {
+          logger.error('Ошибка сохранения названия датчика:', err)
+          reject(err)
+        } else {
+          resolve()
+        }
+      })
+    })
+  }
+
   saveThreshold(sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax) {
     return new Promise((resolve, reject) => {
       this.db.run('INSERT OR REPLACE INTO thresholds (sensor_id, temperature_min, temperature_max, humidity_min, humidity_max) VALUES (?, ?, ?, ?, ?)', [sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax], (err) => {
@@ -80,6 +95,19 @@ class Database {
       this.db.all('SELECT * FROM measurements ORDER BY timestamp DESC', [], (err, rows) => {
         if (err) {
           logger.error('Ошибка при получении измерений:', err)
+          reject(err)
+        } else {
+          resolve(rows)
+        }
+      })
+    })
+  }
+
+  fetchAllSensors() {
+    return new Promise((resolve, reject) => {
+      this.db.all('SELECT * FROM sensors', [], (err, rows) => {
+        if (err) {
+          logger.error('Ошибка при получении названий датчиков:', err)
           reject(err)
         } else {
           resolve(rows)

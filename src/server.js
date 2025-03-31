@@ -20,6 +20,17 @@ const logger = winston.createLogger({
   ],
 })
 
+async function loadSensorNames() {
+  const sensors = await db.fetchAllSensors() // Получаем все названия датчиков из базы
+  const sensorMap = {}
+
+  sensors.forEach((sensor) => {
+    sensorMap[sensor.id] = sensor.name // Создаем отображение id - name
+  })
+
+  return sensorMap // Возвращаем объект с названиями датчиков
+}
+
 app.use(express.json())
 app.use(express.static('public'))
 
@@ -50,6 +61,8 @@ async function startReading() {
 
     setInterval(async () => {
       try {
+        const sensorNames = await loadSensorNames()
+
         for (let i = 0; i < 10; i++) {
           const temperatureAddress = 30000 + i * 2 // Температура
           const humidityAddress = 30001 + i * 2 // Влага
@@ -61,13 +74,14 @@ async function startReading() {
 
           sensorData[i] = {
             id: i + 1,
-            name: `Датчик ${i + 1}`, // Пример имени для датчика
+            name: sensorNames[i + 1] || `Датчик ${i + 1}`, // Используем имя из базы или создаем новое
             temperature: temperatureData.data[0] / 256,
             humidity: humidityData.data[0] / 256,
             status: (statusData.data[0] / 256) | 0,
             timestamp: new Date().toISOString(),
           }
         }
+        console.log(sensorNames)
 
         logger.info('Данные с датчиков', sensorData)
         await saveToDatabase(sensorData) // Сохраняем данные в базу данных
@@ -118,6 +132,21 @@ app.get('/api/logs', (req, res) => {
     res.json(logs)
   } catch (error) {
     res.status(500).json({ error: 'Ошибка при чтении логов' })
+  }
+})
+
+app.put('/api/sensors', async (req, res) => {
+  const { id, name, temperatureMin, temperatureMax, humidityMin, humidityMax } = req.body
+
+  try {
+    await db.saveSensorName(id, name)
+
+    await db.saveThreshold(id, temperatureMin, temperatureMax, humidityMin, humidityMax)
+
+    res.json({ message: 'Информация о датчике обновлена' })
+  } catch (error) {
+    logger.error('Ошибка при обновлении датчика:', error)
+    res.status(500).json({ error: 'Ошибка при обновлении датчика' })
   }
 })
 
