@@ -25,15 +25,9 @@ class Database {
       this.db.run(`CREATE TABLE IF NOT EXISTS measurements (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 sensor_id INTEGER,
+                sensor_name TEXT,
                 temperature REAL,
                 humidity REAL,
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-            )`)
-
-      // Таблица статусов
-      this.db.run(`CREATE TABLE IF NOT EXISTS statuses (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                sensor_id INTEGER,
                 status INTEGER,
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
             )`)
@@ -46,12 +40,18 @@ class Database {
                 humidity_min REAL,
                 humidity_max REAL
             )`)
+
+      // Таблица для хранения названий датчиков (по желанию)
+      this.db.run(`CREATE TABLE IF NOT EXISTS sensors (
+                id INTEGER PRIMARY KEY,
+                name TEXT
+            )`)
     })
   }
 
-  saveMeasurement(sensorId, temperature, humidity) {
+  saveMeasurement(sensorId, sensorName, temperature, humidity, status) {
     return new Promise((resolve, reject) => {
-      this.db.run('INSERT INTO measurements (sensor_id, temperature, humidity) VALUES (?, ?, ?)', [sensorId, temperature, humidity], (err) => {
+      this.db.run('INSERT INTO measurements (sensor_id, sensor_name, temperature, humidity, status) VALUES (?, ?, ?, ?, ?)', [sensorId, sensorName, temperature, humidity, status], (err) => {
         if (err) {
           logger.error('Ошибка сохранения измерения:', err)
           reject(err)
@@ -62,11 +62,11 @@ class Database {
     })
   }
 
-  saveStatus(sensorId, status) {
+  saveThreshold(sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax) {
     return new Promise((resolve, reject) => {
-      this.db.run('INSERT INTO statuses (sensor_id, status) VALUES (?, ?)', [sensorId, status], (err) => {
+      this.db.run('INSERT OR REPLACE INTO thresholds (sensor_id, temperature_min, temperature_max, humidity_min, humidity_max) VALUES (?, ?, ?, ?, ?)', [sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax], (err) => {
         if (err) {
-          logger.error('Ошибка сохранения статуса:', err)
+          logger.error('Ошибка сохранения пороговых значений:', err)
           reject(err)
         } else {
           resolve()
@@ -75,22 +75,16 @@ class Database {
     })
   }
 
-  getLatestMeasurements(limit = 100) {
+  fetchMeasurements() {
     return new Promise((resolve, reject) => {
-      this.db.all(
-        `SELECT * FROM measurements 
-                 ORDER BY timestamp DESC 
-                 LIMIT ?`,
-        [limit],
-        (err, rows) => {
-          if (err) {
-            logger.error('Ошибка получения измерений:', err)
-            reject(err)
-          } else {
-            resolve(rows)
-          }
+      this.db.all('SELECT * FROM measurements ORDER BY timestamp DESC', [], (err, rows) => {
+        if (err) {
+          logger.error('Ошибка при получении измерений:', err)
+          reject(err)
+        } else {
+          resolve(rows)
         }
-      )
+      })
     })
   }
 
