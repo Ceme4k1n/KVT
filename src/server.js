@@ -1,9 +1,11 @@
 const ModbusRTU = require('modbus-serial')
 const express = require('express')
 const winston = require('winston')
-const pool = require('./config/database')
 const fs = require('fs')
 const path = require('path')
+
+const Database = require('./database')
+const db = new Database()
 
 const app = express()
 
@@ -17,31 +19,25 @@ const logger = winston.createLogger({
     }),
   ],
 })
-// Middleware для парсинга JSON
-app.use(express.json())
 
-// Статические файлы
+app.use(express.json())
 app.use(express.static('public'))
-// Создание экземпляра клиента Modbus
+
 const client = new ModbusRTU()
 
-// Массив для хранения данных с датчиков
 const sensorData = []
 
-// Функция для сохранения данных в MySQL
 async function saveToDatabase(data) {
   try {
-    const connection = await pool.getConnection()
     for (const sensor of data) {
-      await connection.execute('INSERT INTO sensor_data (sensor_id, temperature, humidity, status, timestamp) VALUES (?, ?, ?, ?, ?)', [sensor.id, sensor.temperature, sensor.humidity, sensor.status, new Date(sensor.timestamp)])
+      await db.saveMeasurement(sensor.id, sensor.temperature, sensor.humidity)
+      await db.saveStatus(sensor.id, sensor.status)
     }
-    connection.release()
   } catch (error) {
-    console.error('Ошибка при сохранении в базу данных:', error)
+    logger.error('Ошибка при сохранении в базу данных:', error)
   }
 }
 
-// Функция для подключения и чтения данных
 async function startReading() {
   try {
     await client.connectRTU('COM4', {
@@ -87,7 +83,6 @@ async function startReading() {
       }
 
       logger.info('Данные с датчиков', sensorData)
-      // Сохраняем данные в базу
       await saveToDatabase(sensorData)
     }, 5000)
   } catch (err) {
@@ -95,13 +90,10 @@ async function startReading() {
   }
 }
 
-// Запуск функции
 startReading()
 
-// API эндпоинт для получения данных
 app.get('/api/sensors', async (req, res) => {
   try {
-    // Возвращаем данные с датчиков
     res.json(sensorData)
   } catch (error) {
     logger.error('Ошибка при получении данных с датчиков:', error)
@@ -109,7 +101,6 @@ app.get('/api/sensors', async (req, res) => {
   }
 })
 
-// API эндпоинт для получения логов
 app.get('/api/logs', (req, res) => {
   try {
     const logFile = path.join(__dirname, '../logs/modbus.log')
@@ -130,13 +121,11 @@ app.get('/api/logs', (req, res) => {
   }
 })
 
-// Запуск сервера
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`)
 })
 
-// Обработка завершения процесса
 process.on('SIGINT', () => {
   client.close(() => {
     console.log('Соединение закрыто')
