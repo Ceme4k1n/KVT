@@ -113,7 +113,7 @@
           button.innerText = `${period} ч`
           button.onclick = async () => {
             const data = await fetchData(sensorId, period)
-            updateChart(sensorId, data)
+            updateChart(sensorId, data) // Обновляем график с новыми данными
           }
           periodContainer.appendChild(button)
         })
@@ -168,8 +168,10 @@
       function updateChart(sensorId, data) {
         const canvas = document.getElementById(`chart-${sensorId}`)
         if (!canvas) {
-          console.warn(`Canvas for sensor ${sensorId} not found. Skipping update.`)
-          return // Прекращаем выполнение, если график не найден
+          createChart({ id: sensorId, name: `Датчик ${sensorId}` }).then((chartCard) => {
+            document.getElementById('chartsGrid').appendChild(chartCard)
+          }) // Создаем новый график, если он не найден
+          return // Прекращаем выполнение
         }
 
         const ctx = canvas.getContext('2d')

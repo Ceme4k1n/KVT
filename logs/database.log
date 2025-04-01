@@ -24,3 +24,8 @@
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:41:39.920Z"}
 {"__augmented":true,"code":"SQLITE_ERROR","errno":1,"level":"error","message":"Ошибка при получении измерений: SQLITE_ERROR: no such table: thresholds","stack":"Error: SQLITE_ERROR: no such table: thresholds\n--> in Database#all('SELECT * FROM thresholds ORDER BY sensor_id DESC', [], [Function (anonymous)])\n    at C:\\Progs\\KVT\\src\\database.js:96:15\n    at new Promise (<anonymous>)\n    at Database.fetchAllThreshold (C:\\Progs\\KVT\\src\\database.js:95:12)\n    at displayThresholds (C:\\Progs\\KVT\\src\\server.js:129:33)\n    at C:\\Progs\\KVT\\src\\server.js:138:3","timestamp":"2025-04-01T09:41:39.924Z"}
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:41:41.787Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:48:15.238Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:50:16.503Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:52:37.589Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:56:38.049Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:58:09.317Z"}
