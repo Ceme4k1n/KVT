@@ -166,12 +166,11 @@
               const card = document.createElement('div')
               card.className = 'sensor-card'
 
-              // Проверяем состояние датчика и добавляем класс для стилизации
-              const cardClass = sensor.isOutOfBounds ? 'sensor-card error' : 'sensor-card' // error - класс для красного цвета
+              const cardClass = sensor.isOutOfBounds ? 'sensor-card error' : 'sensor-card'
 
               card.innerHTML = `
           <div class="${cardClass}">
-                          <h3>Датчик ${sensor.id} - ${sensor.name}</h3> <!-- Изменили вывод так, чтобы показывало имя -->
+            <h3>Датчик ${sensor.id} - ${sensor.name}</h3> <!-- Изменили вывод так, чтобы показывало имя -->
             <div class="sensor-value temperature">
                 Температура: ${sensor.temperature.toFixed(1)}°C
             </div>
@@ -187,16 +186,14 @@
             <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
           </div>
         `
-
               grid.appendChild(card)
             })
           })
           .catch((error) => console.error('Ошибка при получении данных:', error))
       }
       function openModal(sensorId, sensorName) {
-        currentSensorId = sensorId // Сохраняем id текущего датчика
+        currentSensorId = sensorId
         document.getElementById('sensorName').value = sensorName
-        // Здесь можно также заполнить поля для пороговых значений, если нужно!
         document.getElementById('myModal').style.display = 'block'
       }
 
@@ -236,7 +233,6 @@
           .catch((error) => console.error('Ошибка при сохранении:', error))
       }
 
-      // Обновление данных каждые 5 секунд
       setInterval(updateSensors, 5000)
       updateSensors()
     </script>
