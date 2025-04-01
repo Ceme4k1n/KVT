@@ -129,6 +129,7 @@
       <div class="nav-buttons">
         <a href="logs.html" class="nav-button">Логи</a>
         <a href="index.html" class="nav-button">Датчики</a>
+        <a href="charts.html" class="nav-button">Графики</a>
       </div>
 
       <div class="sensors-grid" id="sensorsGrid"></div>
@@ -232,7 +233,6 @@
           })
           .catch((error) => console.error('Ошибка при сохранении:', error))
       }
-      //33
       setInterval(updateSensors, 5000)
       updateSensors()
     </script>

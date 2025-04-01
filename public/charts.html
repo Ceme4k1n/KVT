@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Графики - КВТ</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .chart-card {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .nav-buttons {
+        margin-bottom: 20px;
+      }
+      .nav-button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .nav-button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Графики - Система измерения температуры и влажности</h1>
+
+      <div class="nav-buttons">
+        <a href="logs.html" class="nav-button">Логи</a>
+        <a href="index.html" class="nav-button">Датчики</a>
+      </div>
+
+      <div id="chartsGrid"></div>
+    </div>
+
+    <script>
+      async function fetchSensors() {
+        const response = await fetch('/api/sensors')
+        return await response.json()
+      }
+
+      async function fetchData(sensorId, hours) {
+        const response = await fetch(`/api/measurements?sensorId=${sensorId}&hours=${hours}`)
+        return await response.json()
+      }
+
+      async function createChart(sensor) {
+        const ctx = document.createElement('canvas')
+        const hours = 24 // Задайте период выборки данных по-умолчанию
+        const data = await fetchData(sensor.id, hours)
+
+        const labels = data.map((entry) => new Date(entry.timestamp).toLocaleTimeString())
+        const temperatures = data.map((entry) => entry.temperature)
+        const humidities = data.map((entry) => entry.humidity)
+
+        const chartCard = document.createElement('div')
+        chartCard.className = 'chart-card'
+        chartCard.innerHTML = `<h3>${sensor.name}</h3>`
+        chartCard.appendChild(ctx)
+
+        const chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Температура (°C)',
+                data: temperatures,
+                borderColor: 'red',
+                fill: false,
+              },
+              {
+                label: 'Влажность (%)',
+                data: humidities,
+                borderColor: 'blue',
+                fill: false,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Время',
+                },
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Значение',
+                },
+              },
+            },
+          },
+        })
+
+        return chartCard
+      }
+
+      async function displayCharts() {
+        const sensors = await fetchSensors()
+        const chartsGrid = document.getElementById('chartsGrid')
+
+        for (const sensor of sensors) {
+          const chartCard = await createChart(sensor)
+          chartsGrid.appendChild(chartCard)
+        }
+      }
+
+      displayCharts()
+    </script>
+  </body>
+</html>

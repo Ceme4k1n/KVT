@@ -130,6 +130,24 @@ class Database {
     })
   }
 
+  fetchMeasurementsBySensorAndTime(sensorId, timestampLimit) {
+    return new Promise((resolve, reject) => {
+      const query = `
+        SELECT * FROM measurements 
+        WHERE sensor_id = ? AND timestamp >= ?
+        ORDER BY timestamp ASC
+      `
+      this.db.all(query, [sensorId, timestampLimit.toISOString()], (err, rows) => {
+        if (err) {
+          logger.error('Ошибка при получении измерений по датчику:', err)
+          reject(err)
+        } else {
+          resolve(rows)
+        }
+      })
+    })
+  }
+
   close() {
     this.db.close((err) => {
       if (err) {

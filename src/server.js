@@ -166,6 +166,25 @@ app.get('/api/logs', (req, res) => {
   }
 })
 
+app.get('/api/measurements', async (req, res) => {
+  const { sensorId, hours } = req.query
+
+  if (!sensorId || !hours) {
+    return res.status(400).json({ error: 'Отсутствуют идентификатор датчика или часы.' })
+  }
+
+  const timestampLimit = new Date()
+  timestampLimit.setHours(timestampLimit.getHours() - hours) // Устанавливаем временной предел
+
+  try {
+    const measurements = await db.fetchMeasurementsBySensorAndTime(sensorId, timestampLimit)
+    res.json(measurements)
+  } catch (error) {
+    logger.error('Ошибка при получении измерений:', error)
+    res.status(500).json({ error: 'Ошибка при получении измерений.' })
+  }
+})
+
 app.put('/api/sensors', async (req, res) => {
   const { id, name, temperatureMin, temperatureMax, humidityMin, humidityMax } = req.body
 
