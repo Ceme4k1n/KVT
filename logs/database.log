@@ -7,3 +7,20 @@
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T06:31:39.327Z"}
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T07:17:03.720Z"}
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:01:01.240Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:27:17.738Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:28:08.742Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:30:29.384Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:34:51.927Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:52:48.198Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T08:57:39.334Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:04:32.619Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:21:36.727Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:25:38.149Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:31:37.200Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:34:20.008Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:36:13.538Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:37:33.501Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:40:10.770Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:41:39.920Z"}
+{"__augmented":true,"code":"SQLITE_ERROR","errno":1,"level":"error","message":"Ошибка при получении измерений: SQLITE_ERROR: no such table: thresholds","stack":"Error: SQLITE_ERROR: no such table: thresholds\n--> in Database#all('SELECT * FROM thresholds ORDER BY sensor_id DESC', [], [Function (anonymous)])\n    at C:\\Progs\\KVT\\src\\database.js:96:15\n    at new Promise (<anonymous>)\n    at Database.fetchAllThreshold (C:\\Progs\\KVT\\src\\database.js:95:12)\n    at displayThresholds (C:\\Progs\\KVT\\src\\server.js:129:33)\n    at C:\\Progs\\KVT\\src\\server.js:138:3","timestamp":"2025-04-01T09:41:39.924Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-01T09:41:41.787Z"}

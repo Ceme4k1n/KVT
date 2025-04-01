@@ -189,9 +189,14 @@ app.put('/api/sensors', async (req, res) => {
   const { id, name, temperatureMin, temperatureMax, humidityMin, humidityMax } = req.body
 
   try {
-    await db.saveSensorName(id, name)
-
-    await db.saveThreshold(id, temperatureMin, temperatureMax, humidityMin, humidityMax)
+    if (id && name) {
+      await db.saveSensorName(id, name)
+      console.log('Изменил только имя')
+    }
+    if (temperatureMin && temperatureMax && humidityMin && humidityMax) {
+      await db.saveThreshold(id, temperatureMin, temperatureMax, humidityMin, humidityMax)
+      console.log('Изменил только датчики')
+    }
 
     res.json({ message: 'Информация о датчике обновлена' })
   } catch (error) {

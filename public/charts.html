@@ -39,6 +39,22 @@
       .nav-button:hover {
         background-color: #2980b9;
       }
+
+      .period-buttons {
+        margin-top: 10px;
+      }
+      .period-button {
+        margin-right: 5px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+      }
+      .period-button:hover {
+        background-color: #2980b9;
+      }
     </style>
   </head>
   <body>
@@ -54,6 +70,8 @@
     </div>
 
     <script>
+      const charts = {} // Хранение графиков для обновления
+
       async function fetchSensors() {
         const response = await fetch('/api/sensors')
         return await response.json()
@@ -66,19 +84,49 @@
 
       async function createChart(sensor) {
         const ctx = document.createElement('canvas')
-        const hours = 24 // Задайте период выборки данных по-умолчанию
-        const data = await fetchData(sensor.id, hours)
-
-        const labels = data.map((entry) => new Date(entry.timestamp).toLocaleTimeString())
-        const temperatures = data.map((entry) => entry.temperature)
-        const humidities = data.map((entry) => entry.humidity)
+        ctx.id = `chart-${sensor.id}` // Уникальный id для каждого canvas
 
         const chartCard = document.createElement('div')
         chartCard.className = 'chart-card'
         chartCard.innerHTML = `<h3>${sensor.name}</h3>`
+
+        // Добавление кнопок для выбора периода
+        const periodButtons = createPeriodButtons(sensor.id)
+        chartCard.appendChild(periodButtons)
         chartCard.appendChild(ctx)
 
-        const chart = new Chart(ctx, {
+        // Загружаем данные по умолчанию
+        const defaultData = await fetchData(sensor.id, 24) // Период по умолчанию 24 часа
+        charts[sensor.id] = initializeChart(ctx, defaultData) // Сохраняем график в объекте charts
+
+        return chartCard
+      }
+
+      function createPeriodButtons(sensorId) {
+        const periodContainer = document.createElement('div')
+        periodContainer.className = 'period-buttons'
+
+        const periods = [3, 6, 12, 24]
+        periods.forEach((period) => {
+          const button = document.createElement('button')
+          button.className = 'period-button'
+          button.innerText = `${period} ч`
+          button.onclick = async () => {
+            const data = await fetchData(sensorId, period)
+            updateChart(sensorId, data)
+          }
+          periodContainer.appendChild(button)
+        })
+
+        return periodContainer
+      }
+
+      function initializeChart(ctx, data) {
+        const labels = data.map((entry) => new Date(entry.timestamp).toLocaleTimeString())
+        const temperatures = data.map((entry) => entry.temperature)
+        const humidities = data.map((entry) => entry.humidity)
+
+        return new Chart(ctx, {
           type: 'line',
           data: {
             labels: labels,
@@ -115,8 +163,25 @@
             },
           },
         })
+      }
 
-        return chartCard
+      function updateChart(sensorId, data) {
+        const canvas = document.getElementById(`chart-${sensorId}`)
+        if (!canvas) {
+          console.warn(`Canvas for sensor ${sensorId} not found. Skipping update.`)
+          return // Прекращаем выполнение, если график не найден
+        }
+
+        const ctx = canvas.getContext('2d')
+        const labels = data.map((entry) => new Date(entry.timestamp).toLocaleTimeString())
+        const temperatures = data.map((entry) => entry.temperature)
+        const humidities = data.map((entry) => entry.humidity)
+
+        // Обновление меток времени и данных графика в существующем графике
+        charts[sensorId].data.labels = labels
+        charts[sensorId].data.datasets[0].data = temperatures
+        charts[sensorId].data.datasets[1].data = humidities
+        charts[sensorId].update()
       }
 
       async function displayCharts() {
@@ -129,7 +194,16 @@
         }
       }
 
+      async function updateCharts() {
+        const sensors = await fetchSensors()
+        for (const sensor of sensors) {
+          const data = await fetchData(sensor.id, 24) // Обновление данных за последние 24 часа
+          updateChart(sensor.id, data)
+        }
+      }
+
       displayCharts()
+      setInterval(updateCharts, 5000) // Обновление графиков каждые 5 секунд
     </script>
   </body>
 </html>
