@@ -80,11 +80,25 @@ class Database {
   saveThreshold(sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax) {
     return new Promise((resolve, reject) => {
       this.db.run('INSERT OR REPLACE INTO thresholds (sensor_id, temperature_min, temperature_max, humidity_min, humidity_max) VALUES (?, ?, ?, ?, ?)', [sensorId, temperatureMin, temperatureMax, humidityMin, humidityMax], (err) => {
+        console.log('Сохранил пороговые температуры')
         if (err) {
           logger.error('Ошибка сохранения пороговых значений:', err)
           reject(err)
         } else {
           resolve()
+        }
+      })
+    })
+  }
+
+  fetchAllThreshold() {
+    return new Promise((resolve, reject) => {
+      this.db.all('SELECT * FROM thresholds ORDER BY sensor_id DESC', [], (err, rows) => {
+        if (err) {
+          logger.error('Ошибка при получении измерений:', err)
+          reject(err)
+        } else {
+          resolve(rows)
         }
       })
     })

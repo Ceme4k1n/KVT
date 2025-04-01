@@ -61,7 +61,13 @@ async function startReading() {
 
     setInterval(async () => {
       try {
-        const sensorNames = await loadSensorNames()
+        const sensorNames = await loadSensorNames() // Загружаем названия датчиков из базы
+        const thresholds = await db.fetchAllThreshold() // Загружаем пороговые значения
+
+        const thresholdMap = {}
+        thresholds.forEach((threshold) => {
+          thresholdMap[threshold.sensor_id] = threshold // создаём карту порогов по id датчика
+        })
 
         for (let i = 0; i < 10; i++) {
           const temperatureAddress = 30000 + i * 2 // Температура
@@ -72,16 +78,31 @@ async function startReading() {
           const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
           const statusData = await client.readHoldingRegisters(statusAddress, 1)
 
+          const sensorId = i + 1
+          const temperature = temperatureData.data[0] / 256
+          const humidity = humidityData.data[0] / 256
+          const status = (statusData.data[0] / 256) | 0
+
+          // Проверяем пороговые значения
+          const threshold = thresholdMap[sensorId]
+          let isOutOfBounds = false
+
+          if (threshold) {
+            if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
+              isOutOfBounds = true // Если данные выходят за порог
+            }
+          }
+
           sensorData[i] = {
-            id: i + 1,
-            name: sensorNames[i + 1] || `Датчик ${i + 1}`, // Используем имя из базы или создаем новое
-            temperature: temperatureData.data[0] / 256,
-            humidity: humidityData.data[0] / 256,
-            status: (statusData.data[0] / 256) | 0,
+            id: sensorId,
+            name: sensorNames[sensorId] || `Датчик ${sensorId}`,
+            temperature: temperature,
+            humidity: humidity,
+            status: status,
             timestamp: new Date().toISOString(),
+            isOutOfBounds: isOutOfBounds, // Указываем, выходит ли значение за пределы
           }
         }
-        console.log(sensorNames)
 
         logger.info('Данные с датчиков', sensorData)
         await saveToDatabase(sensorData) // Сохраняем данные в базу данных
@@ -103,8 +124,18 @@ async function displayMeasurements() {
   }
 }
 
+async function displayThresholds() {
+  try {
+    const thresholds = await db.fetchAllThreshold()
+    console.log('Данные из таблицы thresholds:', thresholds)
+  } catch (error) {
+    console.error('Ошибка при выводе данных из базы данных:', error)
+  }
+}
+
 startReading().then(() => {
-  displayMeasurements() // Выводим данные из базы данных
+  //displayMeasurements() // Выводим данные из базы данных
+  displayThresholds()
 })
 app.get('/api/sensors', async (req, res) => {
   try {

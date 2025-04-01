@@ -116,6 +116,10 @@
         text-decoration: none;
         cursor: pointer;
       }
+      .sensor-card.error {
+        border: 2px solid red;
+        background-color: #ffe6e6;
+      }
     </style>
   </head>
   <body>
@@ -130,7 +134,6 @@
       <div class="sensors-grid" id="sensorsGrid"></div>
     </div>
 
-    <!-- Модальное окно для изменения данных датчиков -->
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
@@ -163,29 +166,33 @@
               const card = document.createElement('div')
               card.className = 'sensor-card'
 
+              // Проверяем состояние датчика и добавляем класс для стилизации
+              const cardClass = sensor.isOutOfBounds ? 'sensor-card error' : 'sensor-card' // error - класс для красного цвета
+
               card.innerHTML = `
+          <div class="${cardClass}">
                           <h3>Датчик ${sensor.id} - ${sensor.name}</h3> <!-- Изменили вывод так, чтобы показывало имя -->
-                          <div class="sensor-value temperature">
-                              Температура: ${sensor.temperature.toFixed(1)}°C
-                          </div>
-                          <div class="sensor-value humidity">
-                              Влажность: ${sensor.humidity.toFixed(1)}%
-                          </div>
-                          <div class="sensor-status">
-                              Статус: ${sensor.status.toFixed(1)}
-                          </div>
-                          <div class="timestamp">
-                              ${new Date(sensor.timestamp).toLocaleString()}
-                          </div>
-                          <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
-                      `
+            <div class="sensor-value temperature">
+                Температура: ${sensor.temperature.toFixed(1)}°C
+            </div>
+            <div class="sensor-value humidity">
+                Влажность: ${sensor.humidity.toFixed(1)}%
+            </div>
+            <div class="sensor-status">
+                Статус: ${sensor.status.toFixed(1)}
+            </div>
+            <div class="timestamp">
+                ${new Date(sensor.timestamp).toLocaleString()}
+            </div>
+            <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
+          </div>
+        `
 
               grid.appendChild(card)
             })
           })
           .catch((error) => console.error('Ошибка при получении данных:', error))
       }
-
       function openModal(sensorId, sensorName) {
         currentSensorId = sensorId // Сохраняем id текущего датчика
         document.getElementById('sensorName').value = sensorName
