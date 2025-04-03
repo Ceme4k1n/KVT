@@ -9,7 +9,8 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #f5f5f5;
+        background-color: #1a1a1a; /* Темный фон */
+        color: white; /* Белый текст */
       }
       .container {
         max-width: 1200px;
@@ -22,14 +23,18 @@
         margin-top: 20px;
       }
       .sensor-card {
-        background: white;
+        background: #2c2c2c; /* Темный фон для карточек датчиков */
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s; /* Плавная анимация при наведении */
+      }
+      .sensor-card:hover {
+        transform: scale(1.02); /* Увеличение карточки при наведении */
       }
       .sensor-card h3 {
         margin: 0 0 15px 0;
-        color: #333;
+        color: #3498db; /* Синий цвет заголовка */
       }
       .sensor-value {
         font-size: 24px;
@@ -37,10 +42,10 @@
         margin: 10px 0;
       }
       .temperature {
-        color: #e74c3c;
+        color: #e74c3c; /* Красный цвет для температуры */
       }
       .humidity {
-        color: #3498db;
+        color: #3498db; /* Синий цвет для влажности */
       }
       .status {
         padding: 5px 10px;
@@ -49,20 +54,20 @@
         margin-top: 10px;
       }
       .status-normal {
-        background-color: #2ecc71;
+        background-color: #2ecc71; /* Зеленый фон для нормального статуса */
         color: white;
       }
       .status-warning {
-        background-color: #f1c40f;
+        background-color: #f1c40f; /* Желтый фон для предупреждения */
         color: white;
       }
       .status-error {
-        background-color: #e74c3c;
+        background-color: #e74c3c; /* Красный фон для ошибки */
         color: white;
       }
       .timestamp {
         font-size: 12px;
-        color: #666;
+        color: #aaa; /* Серый цвет для меток времени */
         margin-top: 10px;
       }
       /* Стили для навигационных кнопок */
@@ -74,10 +79,10 @@
         margin-right: 10px;
         border: none;
         border-radius: 5px;
-        background-color: #3498db;
+        background-color: #3498db; /* Синий фон для кнопок */
         color: white;
         cursor: pointer;
-        text-decoration: none; /* Убираем подчеркивание */
+        text-decoration: none;
       }
       .nav-button:hover {
         background-color: #2980b9;
@@ -92,17 +97,17 @@
         top: 0;
         width: 100%;
         height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
+        overflow: hidden; /* Убираем прокрутку */
+        background-color: rgba(0, 0, 0, 0.5); /* Темный полупрозрачный фон */
         padding-top: 60px;
       }
       .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto;
+        background-color: #2c2c2c; /* Темный фон для модального окна */
+        margin: 15% auto; /* Центрирование окна */
         padding: 20px;
         border: 1px solid #888;
-        width: 80%;
+        width: 400px; /* Установлена фиксированная ширина модального окна */
+        border-radius: 8px; /* Скругленные углы */
       }
       .close {
         color: #aaa;
@@ -112,13 +117,43 @@
       }
       .close:hover,
       .close:focus {
-        color: black;
+        color: white;
         text-decoration: none;
         cursor: pointer;
       }
+      /* Обновление стилей полей ввода */
+      input[type='text'],
+      input[type='number'] {
+        width: calc(100% - 20px); /* Устанавливаем ширину с учетом отступов */
+        padding: 10px;
+        margin: 5px 10px; /* Отступы сверху и снизу, а также по бокам */
+        border: none;
+        border-radius: 4px;
+        background-color: #444; /* Темный фон для полей ввода */
+        color: white; /* Белый текст */
+      }
+      input[type='text']:focus,
+      input[type='number']:focus {
+        outline: none; /* Убираем обводку при фокусировке */
+        border: 2px solid #3498db; /* Синий цвет рамки при фокусировке */
+      }
+      /* Кнопка сохранения */
+      #saveBtn {
+        background-color: #2ecc71; /* Зеленый фон для кнопки сохранения */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+      #saveBtn:hover {
+        background-color: #27ae60; /* Темнее при наведении */
+      }
       .sensor-card.error {
-        border: 2px solid red;
-        background-color: #ffe6e6;
+        border: 2px solid #ffd000;
+        background-color: #ffd000; /* Светло-красный фон для ошибок */
       }
     </style>
   </head>
@@ -170,28 +205,29 @@
               const cardClass = sensor.isOutOfBounds ? 'sensor-card error' : 'sensor-card'
 
               card.innerHTML = `
-          <div class="${cardClass}">
-            <h3>Датчик ${sensor.id} - ${sensor.name}</h3> <!-- Изменили вывод так, чтобы показывало имя -->
-            <div class="sensor-value temperature">
-                Температура: ${sensor.temperature.toFixed(1)}°C
-            </div>
-            <div class="sensor-value humidity">
-                Влажность: ${sensor.humidity.toFixed(1)}%
-            </div>
-            <div class="sensor-status">
-                Статус: ${sensor.status.toFixed(1)}
-            </div>
-            <div class="timestamp">
-                ${new Date(sensor.timestamp).toLocaleString()}
-            </div>
-            <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
-          </div>
-        `
+              <div class="${cardClass}">
+                <h3>Датчик ${sensor.id} - ${sensor.name}</h3>
+                <div class="sensor-value temperature">
+                    Температура: ${sensor.temperature.toFixed(1)}°C
+                </div>
+                <div class="sensor-value humidity">
+                    Влажность: ${sensor.humidity.toFixed(1)}%
+                </div>
+                <div class="sensor-status">
+                    Статус: ${sensor.status.toFixed(1)}
+                </div>
+                <div class="timestamp">
+                    ${new Date(sensor.timestamp).toLocaleString()}
+                </div>
+                <button onclick="openModal(${sensor.id}, '${sensor.name}')">Изменить</button>
+              </div>
+            `
               grid.appendChild(card)
             })
           })
           .catch((error) => console.error('Ошибка при получении данных:', error))
       }
+
       function openModal(sensorId, sensorName) {
         currentSensorId = sensorId
         document.getElementById('sensorName').value = sensorName
@@ -233,6 +269,7 @@
           })
           .catch((error) => console.error('Ошибка при сохранении:', error))
       }
+
       setInterval(updateSensors, 5000)
       updateSensors()
     </script>

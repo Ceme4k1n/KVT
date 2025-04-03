@@ -9,7 +9,8 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #f5f5f5;
+        background-color: #1a1a1a; /* Темный фон */
+        color: white; /* Белый цвет текста */
       }
       .container {
         max-width: 1200px;
@@ -23,20 +24,21 @@
         margin-right: 10px;
         border: none;
         border-radius: 5px;
-        background-color: #3498db;
+        background-color: #3498db; /* Синий фон для кнопок */
         color: white;
         cursor: pointer;
         text-decoration: none;
+        transition: background-color 0.3s;
       }
       .nav-button:hover {
-        background-color: #2980b9;
+        background-color: #2980b9; /* Темнее при наведении */
       }
       .log-entry {
         padding: 15px;
         margin-bottom: 10px;
         border-radius: 5px;
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #2c2c2c; /* Цвет фона для записей логов */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
       .sensor-data {
         display: grid;
@@ -46,24 +48,25 @@
       }
       .sensor-item {
         padding: 10px;
-        background-color: #f8f9fa;
+        background-color: #444; /* Темный фон для сенсоров */
         border-radius: 4px;
       }
       .timestamp {
-        color: #666;
+        color: #aaa; /* Серый цвет для меток времени */
         font-size: 0.9em;
       }
       .refresh-button {
         padding: 10px 20px;
-        background-color: #2ecc71;
+        background-color: #2ecc71; /* Зеленый цвет для кнопки обновления */
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         margin-bottom: 20px;
+        transition: background-color 0.3s;
       }
       .refresh-button:hover {
-        background-color: #27ae60;
+        background-color: #27ae60; /* Темнее при наведении */
       }
     </style>
   </head>
@@ -74,6 +77,7 @@
       <div class="nav-buttons">
         <a href="logs.html" class="nav-button">Логи</a>
         <a href="index.html" class="nav-button">Датчики</a>
+        <a href="charts.html" class="nav-button">Графики</a>
       </div>
 
       <button class="refresh-button" onclick="fetchLogs()">Обновить логи</button>
@@ -87,22 +91,22 @@
 
       function createSensorDataHTML(sensorData) {
         return `
-          <div class="sensor-data">
-            ${Object.entries(sensorData)
-              .filter(([key]) => key !== 'level' && key !== 'message' && key !== 'timestamp')
-              .map(
-                ([key, value]) => `
-                <div class="sensor-item">
-                  <strong>Датчик ${key}:</strong><br>
-                  Температура: ${value.temperature}°C<br>
-                  Влажность: ${value.humidity}%<br>
-                  Статус: ${value.status}
-                </div>
-              `
-              )
-              .join('')}
-          </div>
-        `
+        <div class="sensor-data">
+          ${Object.entries(sensorData)
+            .filter(([key]) => key !== 'level' && key !== 'message' && key !== 'timestamp')
+            .map(
+              ([key, value]) => `
+              <div class="sensor-item">
+                <strong>Датчик ${key}:</strong><br>
+                Температура: ${value.temperature}°C<br>
+                Влажность: ${value.humidity}%<br>
+                Статус: ${value.status}
+              </div>
+            `
+            )
+            .join('')}
+        </div>
+      `
       }
 
       function fetchLogs() {
@@ -112,7 +116,8 @@
             const logContainer = document.getElementById('logContainer')
             logContainer.innerHTML = ''
 
-            logs.forEach((log) => {
+            // Переворачиваем массив логов, чтобы новые записи были первыми
+            logs.reverse().forEach((log) => {
               const entry = document.createElement('div')
               entry.className = 'log-entry'
 
@@ -120,10 +125,10 @@
                 entry.textContent = log
               } else {
                 entry.innerHTML = `
-                  <div class="timestamp">${formatTimestamp(log.timestamp)}</div>
-                  <div class="message">${log.message}</div>
-                  ${createSensorDataHTML(log)}
-                `
+                <div class="timestamp">${formatTimestamp(log.timestamp)}</div>
+                <div class="message">${log.message}</div>
+                ${createSensorDataHTML(log)}
+              `
               }
 
               logContainer.appendChild(entry)

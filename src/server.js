@@ -90,6 +90,7 @@ async function startReading() {
           if (threshold) {
             if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
               isOutOfBounds = true // Если данные выходят за порог
+              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C, Влажность ${humidity.toFixed(1)}%`) // Логируем предупреждение
             }
           }
 
@@ -104,10 +105,9 @@ async function startReading() {
           }
         }
 
-        logger.info('Данные с датчиков', sensorData)
         await saveToDatabase(sensorData) // Сохраняем данные в базу данных
       } catch (err) {
-        console.error(`Ошибка при чтении датчиков: ${err.message}`)
+        logger.error(`Ошибка при чтении датчиков: ${err.message}`) // Логируем ошибки
       }
     }, 5000)
   } catch (err) {

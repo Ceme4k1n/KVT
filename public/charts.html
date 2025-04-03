@@ -10,18 +10,19 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #f5f5f5;
+        background-color: #2c2c2c; /* Более светлый темный фон */
+        color: white; /* Белый текст */
       }
       .container {
         max-width: 1200px;
         margin: auto;
       }
       .chart-card {
-        background: white;
+        background: #3a3a3a; /* Более светлый фон для карточек графиков */
         border-radius: 8px;
         padding: 20px;
         margin: 20px 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
       }
       .nav-buttons {
         margin-bottom: 20px;
@@ -31,13 +32,13 @@
         margin-right: 10px;
         border: none;
         border-radius: 5px;
-        background-color: #3498db;
+        background-color: #3498db; /* Синий фон для кнопок */
         color: white;
         cursor: pointer;
         text-decoration: none;
       }
       .nav-button:hover {
-        background-color: #2980b9;
+        background-color: #2980b9; /* Темнее при наведении */
       }
 
       .period-buttons {
@@ -48,12 +49,12 @@
         padding: 5px 10px;
         border: none;
         border-radius: 5px;
-        background-color: #3498db;
+        background-color: #3498db; /* Синий фон для кнопок выбора периода */
         color: white;
         cursor: pointer;
       }
       .period-button:hover {
-        background-color: #2980b9;
+        background-color: #2980b9; /* Темнее при наведении */
       }
     </style>
   </head>
@@ -64,6 +65,7 @@
       <div class="nav-buttons">
         <a href="logs.html" class="nav-button">Логи</a>
         <a href="index.html" class="nav-button">Датчики</a>
+        <a href="charts.html" class="nav-button">Графики</a>
       </div>
 
       <div id="chartsGrid"></div>
