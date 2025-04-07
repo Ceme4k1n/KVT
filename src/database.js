@@ -46,6 +46,16 @@ class Database {
                 id INTEGER PRIMARY KEY,
                 name TEXT
             )`)
+
+      // Таблица для хранения настроек подключения
+      this.db.run(`CREATE TABLE IF NOT EXISTS connection_settings (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                connect_rtu TEXT,
+                baudRate INTEGER CHECK (baudRate IN (9600, 115200, 19200, 38400)),
+                parity TEXT,
+                stopBits INTEGER,
+                dataBits INTEGER
+          )`)
     })
   }
 
@@ -144,6 +154,64 @@ class Database {
         } else {
           resolve(rows)
         }
+      })
+    })
+  }
+
+  saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits) {
+    return new Promise((resolve, reject) => {
+      this.db.get(`SELECT * FROM connection_settings WHERE id = ?`, [1], (err, row) => {
+        if (err) {
+          logger.error('Ошибка при проверке существования записи:', err)
+          return reject(err)
+        }
+
+        if (row) {
+          this.db.run(
+            `UPDATE connection_settings SET 
+                         connect_rtu = ?, 
+                         baudRate = ?, 
+                         parity = ?, 
+                         stopBits = ?, 
+                         dataBits = ? 
+                         WHERE id = ?`, // Замените если требуется
+            [connect_rtu, baudRate, parity, stopBits, dataBits, row.id],
+            (err) => {
+              if (err) {
+                logger.error('Ошибка обновления настроек подключения:', err)
+                return reject(err)
+              }
+              resolve()
+            }
+          )
+        } else {
+          this.db.run(
+            `INSERT INTO connection_settings (connect_rtu, baudRate, parity, stopBits, dataBits) 
+                         VALUES (?, ?, ?, ?, ?)`,
+            [connect_rtu, baudRate, parity, stopBits, dataBits],
+            (err) => {
+              if (err) {
+                logger.error('Ошибка сохранения новых настроек подключения:', err)
+                return reject(err)
+              }
+              console.log('Создал новую')
+
+              resolve()
+            }
+          )
+        }
+      })
+    })
+  }
+
+  getConnectionSettings() {
+    return new Promise((resolve, reject) => {
+      this.db.get(`SELECT * FROM connection_settings WHERE id = ?`, [1], (err, row) => {
+        if (err) {
+          logger.error('Ошибка при получении настроек подключения:', err)
+          return reject(err)
+        }
+        resolve(row)
       })
     })
   }

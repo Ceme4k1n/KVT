@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройки - КВТ</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #1a1a1a; /* Темный фон */
+        color: white; /* Белый текст */
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+      }
+      h1 {
+        margin-bottom: 20px;
+        color: #ffffff; /* Синий цвет заголовка */
+        text-align: center; /* Центруем заголовок */
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type='text'],
+      input[type='number'],
+      select {
+        width: calc(100% - 10px); /* Ширина поля ввода */
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #444; /* Темный фон для полей ввода */
+        color: white; /* Белый текст */
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #2ecc71; /* Зеленый фон для кнопки */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #27ae60; /* Темнее при наведении */
+      }
+      .nav-buttons {
+        margin-bottom: 20px; /* Отступ между кнопками и содержимым */
+        display: flex;
+        justify-content: center; /* Центрирование кнопок */
+        flex-wrap: wrap; /* Обтягивание кнопок на следующую строку при необходимости */
+      }
+      .nav-button {
+        padding: 10px 20px;
+        margin: 0 5px; /* Отступ между кнопками */
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db; /* Синий фон для кнопок */
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      .nav-button:hover {
+        background-color: #2980b9; /* Темнее при наведении */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Настройки подключения</h1>
+
+      <div class="nav-buttons">
+        <a href="logs.html" class="nav-button">Логи</a>
+        <a href="index.html" class="nav-button">Датчики</a>
+        <a href="charts.html" class="nav-button">Графики</a>
+        <a href="settings.html" class="nav-button">Настройки</a>
+      </div>
+
+      <label for="connect_rtu">Порт подключения (например, COM4):</label>
+      <input type="text" id="connect_rtu" placeholder="Введите порт" required />
+
+      <label for="baudRate">Скорость передачи:</label>
+      <select id="baudRate">
+        <option value="9600">9600</option>
+        <option value="19200">19200</option>
+        <option value="38400">38400</option>
+        <option value="115200">115200</option>
+      </select>
+
+      <label for="parity">Четность:</label>
+      <select id="parity">
+        <option value="none">Нет</option>
+        <option value="even">Четная</option>
+        <option value="odd">Нечетная</option>
+      </select>
+
+      <label for="stopBits">Количество стоп-битов:</label>
+      <input type="number" id="stopBits" value="1" min="1" max="2" />
+
+      <label for="dataBits">Количество бит данных:</label>
+      <input type="number" id="dataBits" value="8" min="5" max="8" />
+
+      <button id="saveSettings">Сохранить настройки</button>
+    </div>
+
+    <script>
+      document.getElementById('saveSettings').onclick = function () {
+        const settings = {
+          connect_rtu: document.getElementById('connect_rtu').value,
+          baudRate: parseInt(document.getElementById('baudRate').value),
+          parity: document.getElementById('parity').value,
+          stopBits: parseInt(document.getElementById('stopBits').value),
+          dataBits: parseInt(document.getElementById('dataBits').value),
+        }
+
+        fetch('/api/settings', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(settings),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Настройки успешно сохранены:', data)
+            alert('Настройки успешно сохранены. Пожалуйста, перезапустите сервер для применения изменений.')
+          })
+          .catch((error) => console.error('Ошибка при сохранении:', error))
+      }
+    </script>
+  </body>
+</html>

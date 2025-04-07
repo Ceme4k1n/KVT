@@ -49,12 +49,26 @@ async function saveToDatabase(data) {
 
 async function startReading() {
   try {
-    await client.connectRTU('COM4', {
-      baudRate: 115200,
-      parity: 'none',
-      stopBits: 1,
-      dataBits: 8,
+    const connectionSettings = await db.getConnectionSettings() // Получаем настройки подключения
+    if (!connectionSettings) {
+      throw new Error('Настройки подключения не найдены в базе данных.')
+    }
+    console.log(connectionSettings)
+
+    await client.connectRTU(connectionSettings.connect_rtu, {
+      baudRate: connectionSettings.baudRate,
+      parity: connectionSettings.parity,
+      stopBits: connectionSettings.stopBits,
+      dataBits: connectionSettings.dataBits,
     })
+    isPortOpen = true // Порт открыт
+
+    // await client.connectRTU('COM4', {
+    //   baudRate: 115200,
+    //   parity: 'none',
+    //   stopBits: 1,
+    //   dataBits: 8,
+    // })
     console.log('Подключение к Modbus устройству успешно')
 
     await client.setID(1)
@@ -202,6 +216,30 @@ app.put('/api/sensors', async (req, res) => {
   } catch (error) {
     logger.error('Ошибка при обновлении датчика:', error)
     res.status(500).json({ error: 'Ошибка при обновлении датчика' })
+  }
+})
+
+app.put('/api/settings', async (req, res) => {
+  const { connect_rtu, baudRate, parity, stopBits, dataBits } = req.body
+  console.log(req.body)
+
+  // Сохраняем настройки в базе данных
+  try {
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits)
+
+    // Закрываем текущее соединение
+    if (isPortOpen) {
+      await client.close() // Закрываем только если порт открыт
+      isPortOpen = false
+    }
+
+    // Перезапускаем чтение данных с новыми настройками
+    await startReading()
+
+    res.json({ message: 'Настройки успешно обновлены и соединение перезапущено.' })
+  } catch (error) {
+    console.error('Ошибка при обновлении настроек:', error)
+    res.status(500).json({ error: 'Ошибка при обновлении настроек' })
   }
 })
 
