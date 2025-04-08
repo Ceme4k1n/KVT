@@ -3,11 +3,28 @@ const express = require('express')
 const winston = require('winston')
 const fs = require('fs')
 const path = require('path')
+const TelegramBot = require('node-telegram-bot-api')
+require('dotenv').config()
 
 const Database = require('./database')
 const db = new Database()
 
 const app = express()
+const chatId = 1029163005
+let bot
+
+async function initializeTelegramBot() {
+  const connectionSettings = await db.getConnectionSettings()
+  if (!connectionSettings) {
+    throw new Error('Настройки подключения не найдены в базе данных.')
+  }
+
+  // Устанавливаем прокси
+  process.env.HTTPS_PROXY = connectionSettings.proxy || ''
+
+  // Инициализируем Telegram-бота
+  bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
+}
 
 const logger = winston.createLogger({
   level: 'info',
@@ -36,6 +53,11 @@ app.use(express.static('public'))
 
 const client = new ModbusRTU()
 const sensorData = []
+
+async function sendTelegramNotification(sensorName, temperature, humidity) {
+  const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C\nВлажность: ${humidity.toFixed(1)}%`
+  await bot.sendMessage(chatId, message)
+}
 
 async function saveToDatabase(data) {
   try {
@@ -69,6 +91,7 @@ async function startReading() {
     //   stopBits: 1,
     //   dataBits: 8,
     // })
+    //Добавить адрес прибора
     console.log('Подключение к Modbus устройству успешно')
 
     await client.setID(1)
@@ -105,6 +128,8 @@ async function startReading() {
             if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
               isOutOfBounds = true // Если данные выходят за порог
               logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C, Влажность ${humidity.toFixed(1)}%`) // Логируем предупреждение
+
+              await sendTelegramNotification(sensorNames[sensorId], temperature, humidity)
             }
           }
 
@@ -147,10 +172,15 @@ async function displayThresholds() {
   }
 }
 
-startReading().then(() => {
-  //displayMeasurements() // Выводим данные из базы данных
-  displayThresholds()
-})
+initializeTelegramBot()
+  .then(() => {
+    startReading().then(() => {
+      displayThresholds()
+    })
+  })
+  .catch((err) => {
+    console.error('Ошибка инициализации Telegram бота:', err)
+  })
 app.get('/api/sensors', async (req, res) => {
   try {
     res.json(sensorData)
@@ -220,12 +250,12 @@ app.put('/api/sensors', async (req, res) => {
 })
 
 app.put('/api/settings', async (req, res) => {
-  const { connect_rtu, baudRate, parity, stopBits, dataBits } = req.body
+  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy } = req.body
   console.log(req.body)
 
   // Сохраняем настройки в базе данных
   try {
-    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits)
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy)
 
     // Закрываем текущее соединение
     if (isPortOpen) {

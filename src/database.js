@@ -54,7 +54,9 @@ class Database {
                 baudRate INTEGER CHECK (baudRate IN (9600, 115200, 19200, 38400)),
                 parity TEXT,
                 stopBits INTEGER,
-                dataBits INTEGER
+                dataBits INTEGER,
+                tgToken TEXT,
+                proxy TEXT
           )`)
     })
   }
@@ -158,7 +160,7 @@ class Database {
     })
   }
 
-  saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits) {
+  saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy) {
     return new Promise((resolve, reject) => {
       this.db.get(`SELECT * FROM connection_settings WHERE id = ?`, [1], (err, row) => {
         if (err) {
@@ -189,6 +191,15 @@ class Database {
           if (dataBits !== undefined && dataBits !== '') {
             updates.push('dataBits = ?')
             parameters.push(dataBits)
+          }
+          if (tgToken !== undefined && tgToken !== '') {
+            updates.push('tgToken = ?')
+            parameters.push(tgToken)
+          }
+
+          if (proxy !== undefined && proxy !== '') {
+            updates.push('proxy = ?')
+            parameters.push(proxy)
           }
 
           if (updates.length > 0) {
