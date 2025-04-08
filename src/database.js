@@ -167,35 +167,54 @@ class Database {
         }
 
         if (row) {
-          this.db.run(
-            `UPDATE connection_settings SET 
-                         connect_rtu = ?, 
-                         baudRate = ?, 
-                         parity = ?, 
-                         stopBits = ?, 
-                         dataBits = ? 
-                         WHERE id = ?`, // Замените если требуется
-            [connect_rtu, baudRate, parity, stopBits, dataBits, row.id],
-            (err) => {
+          const updates = []
+          const parameters = []
+
+          if (connect_rtu !== undefined && connect_rtu !== '') {
+            updates.push('connect_rtu = ?')
+            parameters.push(connect_rtu)
+          }
+          if (baudRate !== undefined && baudRate !== '') {
+            updates.push('baudRate = ?')
+            parameters.push(baudRate)
+          }
+          if (parity !== undefined && parity !== '') {
+            updates.push('parity = ?')
+            parameters.push(parity)
+          }
+          if (stopBits !== undefined && stopBits !== '') {
+            updates.push('stopBits = ?')
+            parameters.push(stopBits)
+          }
+          if (dataBits !== undefined && dataBits !== '') {
+            updates.push('dataBits = ?')
+            parameters.push(dataBits)
+          }
+
+          if (updates.length > 0) {
+            const sql = `UPDATE connection_settings SET ${updates.join(', ')} WHERE id = ?`
+            parameters.push(row.id) // Добавляем ID записи в параметры
+            this.db.run(sql, parameters, (err) => {
               if (err) {
                 logger.error('Ошибка обновления настроек подключения:', err)
                 return reject(err)
               }
               resolve()
-            }
-          )
+            })
+          } else {
+            resolve()
+          }
         } else {
           this.db.run(
             `INSERT INTO connection_settings (connect_rtu, baudRate, parity, stopBits, dataBits) 
-                         VALUES (?, ?, ?, ?, ?)`,
-            [connect_rtu, baudRate, parity, stopBits, dataBits],
+                     VALUES (?, ?, ?, ?, ?)`,
+            [connect_rtu || null, baudRate || null, parity || null, stopBits || null, dataBits || null],
             (err) => {
               if (err) {
                 logger.error('Ошибка сохранения новых настроек подключения:', err)
                 return reject(err)
               }
               console.log('Создал новую')
-
               resolve()
             }
           )

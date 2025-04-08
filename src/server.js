@@ -61,7 +61,7 @@ async function startReading() {
       stopBits: connectionSettings.stopBits,
       dataBits: connectionSettings.dataBits,
     })
-    isPortOpen = true // Порт открыт
+    isPortOpen = true
 
     // await client.connectRTU('COM4', {
     //   baudRate: 115200,
@@ -115,11 +115,11 @@ async function startReading() {
             humidity: humidity,
             status: status,
             timestamp: new Date().toISOString(),
-            isOutOfBounds: isOutOfBounds, // Указываем, выходит ли значение за пределы
+            isOutOfBounds: isOutOfBounds,
           }
         }
 
-        await saveToDatabase(sensorData) // Сохраняем данные в базу данных
+        await saveToDatabase(sensorData)
       } catch (err) {
         logger.error(`Ошибка при чтении датчиков: ${err.message}`) // Логируем ошибки
       }
