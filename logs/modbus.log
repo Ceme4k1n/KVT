@@ -58,3 +58,55 @@
 {"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:20.679Z"}
 {"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:25.694Z"}
 {"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:30.584Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:27.370Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:13:31.786Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:37.195Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:42.292Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:15:56.688Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:01.288Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:06.760Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:11.491Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:16.995Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:21.306Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:26.864Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:31.329Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:24.754Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:29.892Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:19:34.388Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:39.902Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:19:44.417Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:21:52.224Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:21:56.553Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:22:02.177Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:23:04.665Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:23:09.515Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:24:58.192Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:02.684Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:08.160Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:12.702Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:18.170Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:22.720Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:28.180Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:27:20.102Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:27:24.667Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:27:30.234Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:28:13.477Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:28:23.528Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:32:54.260Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:32:59.110Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:03.571Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:09.038Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:13.573Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:19.211Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:23.588Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:29.221Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:33.605Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:36:47.643Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:36:52.151Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:37:18.218Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:37:22.762Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:37:28.309Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:37:32.775Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:21.762Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:26.838Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:31.871Z"}

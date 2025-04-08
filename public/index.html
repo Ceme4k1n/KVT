@@ -34,7 +34,7 @@
       }
       .sensor-card h3 {
         margin: 0 0 15px 0;
-        color: #3498db; /* Синий цвет заголовка */
+        color: #ffffff; /* Синий цвет заголовка */
       }
       .sensor-value {
         font-size: 24px;
@@ -42,10 +42,10 @@
         margin: 10px 0;
       }
       .temperature {
-        color: #e74c3c; /* Красный цвет для температуры */
+        color: #ffffff; /* Красный цвет для температуры */
       }
       .humidity {
-        color: #3498db; /* Синий цвет для влажности */
+        color: #ffffff; /* Синий цвет для влажности */
       }
       .status {
         padding: 5px 10px;
@@ -55,14 +55,6 @@
       }
       .status-normal {
         background-color: #2ecc71; /* Зеленый фон для нормального статуса */
-        color: white;
-      }
-      .status-warning {
-        background-color: #f1c40f; /* Желтый фон для предупреждения */
-        color: white;
-      }
-      .status-error {
-        background-color: #e74c3c; /* Красный фон для ошибки */
         color: white;
       }
       .timestamp {
@@ -154,6 +146,28 @@
       .sensor-card.error {
         border: 2px solid #ffd000;
         background-color: #ffd000; /* Светло-красный фон для ошибок */
+      }
+      .sensor-card.temp-error {
+        background-color: #e74c3c; /* Красный фон для ошибки температуры */
+      }
+      .sensor-card.humidity-error {
+        background-color: #f1c40f; /* Желтый фон для ошибки влажности */
+      }
+      .sensor-card.error {
+        background-color: #e74c3c; /* Красный фон для ошибок, также можно наложить анимацию мигания */
+        animation: blink 1s infinite; /* Анимация мигания */
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     </style>
   </head>

@@ -141,6 +141,10 @@ async function startReading() {
             status: status,
             timestamp: new Date().toISOString(),
             isOutOfBounds: isOutOfBounds,
+            temperatureMax: threshold ? threshold.temperature_max : null,
+            temperatureMin: threshold ? threshold.temperature_min : null,
+            humidityMax: threshold ? threshold.humidity_max : null,
+            humidityMin: threshold ? threshold.humidity_min : null,
           }
         }
 
