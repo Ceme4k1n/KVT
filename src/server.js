@@ -21,14 +21,14 @@ const logger = winston.createLogger({
 })
 
 async function loadSensorNames() {
-  const sensors = await db.fetchAllSensors() // Получаем все названия датчиков из базы
+  const sensors = await db.fetchAllSensors()
   const sensorMap = {}
 
   sensors.forEach((sensor) => {
-    sensorMap[sensor.id] = sensor.name // Создаем отображение id - name
+    sensorMap[sensor.id] = sensor.name
   })
 
-  return sensorMap // Возвращаем объект с названиями датчиков
+  return sensorMap
 }
 
 app.use(express.json())
@@ -49,7 +49,7 @@ async function saveToDatabase(data) {
 
 async function startReading() {
   try {
-    const connectionSettings = await db.getConnectionSettings() // Получаем настройки подключения
+    const connectionSettings = await db.getConnectionSettings()
     if (!connectionSettings) {
       throw new Error('Настройки подключения не найдены в базе данных.')
     }
