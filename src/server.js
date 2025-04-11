@@ -19,11 +19,29 @@ async function initializeTelegramBot() {
     throw new Error('Настройки подключения не найдены в базе данных.')
   }
 
-  // Устанавливаем прокси
+  // Устанавливаем прокси, если он есть
   process.env.HTTPS_PROXY = connectionSettings.proxy || ''
 
   // Инициализируем Telegram-бота
   bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
+  bot.on('polling_error', (error) => {
+    logger.error(`Ошибка Telegram бота: ${error.message}`)
+
+    // Если ошибка связана с подключением, пытаемся пересоздать соединение
+    if (botReconnectAttempts < maxReconnectAttempts) {
+      botReconnectAttempts++
+      setTimeout(() => {
+        initializeTelegramBot()
+          .then(() => {
+            logger.info('Telegram бот успешно переподключен')
+            botReconnectAttempts = 0 // сбрасываем счетчик попыток
+          })
+          .catch((e) => {
+            logger.error('Не удалось переподключить Telegram бота:', e)
+          })
+      }, 5000) // Попробуем через 5 секунд
+    }
+  })
 }
 
 const logger = winston.createLogger({
