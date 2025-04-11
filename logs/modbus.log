@@ -1,112 +1,97 @@
-{"level":"error","message":"Ошибка при чтении датчиков: Data length error, expected 7 got 3","timestamp":"2025-04-08T08:36:55.436Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:01.008Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:05.959Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:10.951Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:15.864Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:20.906Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: EFATAL: Error: connect ETIMEDOUT 149.154.167.220:443","timestamp":"2025-04-08T08:37:22.059Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:25.980Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: EFATAL: Error: connect ETIMEDOUT 149.154.167.220:443","timestamp":"2025-04-08T08:37:27.026Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:31.077Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: EFATAL: Error: connect ETIMEDOUT 149.154.167.220:443","timestamp":"2025-04-08T08:37:31.994Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:37:35.886Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: EFATAL: Error: connect ETIMEDOUT 149.154.167.220:443","timestamp":"2025-04-08T08:37:36.926Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:38:53.650Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:38:58.807Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:00.749Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:05.662Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:10.613Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:15.687Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:20.723Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: EFATAL: Error: connect ETIMEDOUT 149.154.167.220:443","timestamp":"2025-04-08T08:41:21.804Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:37.834Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:42.990Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:41:47.779Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:42:23.399Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:42:28.455Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:42:33.346Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T08:42:38.567Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:42:43.007Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:44:43.198Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: CRC error","timestamp":"2025-04-08T08:46:03.300Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Data length error, expected 7 got 2","timestamp":"2025-04-08T08:46:43.355Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:48:18.505Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:49:53.630Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:51:53.771Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:52:28.846Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Data length error, expected 7 got 2","timestamp":"2025-04-08T08:53:18.915Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:54:24.001Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:55:34.120Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T08:55:54.170Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:00:35.072Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:00:40.044Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:02:59.124Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T09:03:03.551Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:03:09.033Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:05:11.938Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:05:16.993Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:06:12.699Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T09:06:17.061Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Ролл: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T09:06:22.382Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:08.821Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:13.838Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:21.697Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:28.853Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:33.854Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:38.855Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:05:43.854Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:20.679Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:25.694Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:06:30.584Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:27.370Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:13:31.786Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:37.195Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:13:42.292Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:15:56.688Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:01.288Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:06.760Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:11.491Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:16.995Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:21.306Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:16:26.864Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:16:31.329Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:24.754Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:29.892Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:19:34.388Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:19:39.902Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:19:44.417Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:21:52.224Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:21:56.553Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:22:02.177Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:23:04.665Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:23:09.515Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:24:58.192Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:02.684Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:08.160Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:12.702Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:18.170Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:25:22.720Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:25:28.180Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:27:20.102Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:27:24.667Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:27:30.234Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:28:13.477Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:28:23.528Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:32:54.260Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:32:59.110Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:03.571Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:09.038Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:13.573Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:19.211Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:23.588Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:33:29.221Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:33:33.605Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:36:47.643Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:36:52.151Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:37:18.218Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:37:22.762Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:37:28.309Z"}
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-08T10:37:32.775Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:21.762Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 24.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:26.838Z"}
-{"level":"warn","message":"Пороговое значение превышено для датчика Тест: Температура 23.0°C, Влажность 26.0%","timestamp":"2025-04-08T10:38:31.871Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:31:55.053Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:31:59.010Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:32:39.639Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:32:44.630Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:32:44.826Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:32:45.898Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:32:49.747Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:32:51.063Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:32:53.226Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:222:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:32:53.376Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:32:54.618Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-11T06:37:57.774Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-11T06:39:20.389Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:25.392Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:30.408Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:35.422Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:40.429Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:45.429Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:50.434Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:39:55.445Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:00.446Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:05.450Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:10.465Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:15.478Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:20.482Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:40:25.485Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: loadSensorNames is not defined","timestamp":"2025-04-11T06:45:22.799Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: loadSensorNames is not defined","timestamp":"2025-04-11T06:45:27.801Z"}
+{"level":"error","message":"Ошибка при получении данных с датчиков: sensorData is not defined","stack":"ReferenceError: sensorData is not defined\n    at C:\\Progs\\KVT\\src\\server.js:197:14\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Progs\\KVT\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\serve-static\\index.js:121:7)\n    at SendStream.emit (node:events:518:28)\n    at SendStream.error (C:\\Progs\\KVT\\node_modules\\send\\index.js:270:17)\n    at SendStream.onStatError (C:\\Progs\\KVT\\node_modules\\send\\index.js:417:12)\n    at next (C:\\Progs\\KVT\\node_modules\\send\\index.js:730:16)\n    at onstat (C:\\Progs\\KVT\\node_modules\\send\\index.js:719:14)\n    at FSReqCallback.oncomplete (node:fs:198:21)","timestamp":"2025-04-11T06:48:56.346Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorData is not defined","timestamp":"2025-04-11T06:49:01.785Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:32.612Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:32.616Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:37.613Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:37.615Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:37.627Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:42.616Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:42.618Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:42.619Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:42.630Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:47.617Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:47.619Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:47.620Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:47.630Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:47.632Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:52.631Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:52.633Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:52.636Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:52.637Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:52.658Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:52.660Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.637Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.639Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.640Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:55:57.642Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.643Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.663Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:55:57.664Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later), пытаемся переподключиться...","timestamp":"2025-04-11T06:56:42.795Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:42.801Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:56:47.794Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:47.797Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:47.810Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:52.802Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:56:52.805Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:52.806Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:56:52.817Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:59:36.859Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:36.865Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:59:41.862Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:41.864Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:41.876Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:59:46.863Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:46.877Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:46.879Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T06:59:46.967Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:59:51.864Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:51.866Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:51.896Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:51.897Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:56.868Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T06:59:56.870Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:56.872Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:56.911Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T06:59:56.913Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T07:00:01.871Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T07:00:01.872Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T07:00:01.875Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T07:00:01.875Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T07:00:01.928Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus:","timestamp":"2025-04-11T07:00:01.930Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-11T07:04:08.058Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T07:04:13.056Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-11T07:04:13.060Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T07:04:16.170Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-11T07:07:21.388Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-11T07:07:21.390Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-11T07:07:24.499Z"}

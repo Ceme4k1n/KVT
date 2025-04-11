@@ -150,12 +150,44 @@ async function startReading() {
 
         await saveToDatabase(sensorData)
       } catch (err) {
-        logger.error(`Ошибка при чтении датчиков: ${err.message}`) // Логируем ошибки
+        if (err.message.includes('Port Not Open')) {
+          logger.error(`Ошибка при чтении датчиков: ${err.message}, пытаемся переподключиться...`)
+          await reconnectModbusClient(connectionSettings)
+          // После переподключения продолжим попытки чтения
+        }
+        logger.error(`Ошибка при чтении датчиков: ${err.message}`)
       }
     }, 5000)
   } catch (err) {
     console.error('Ошибка при подключении:', err)
   }
+}
+
+// Функция для повторного подключения к Modbus
+async function reconnectModbusClient(connectionSettings) {
+  let retryCount = 0
+  const maxRetries = 5 // Максимальное количество попыток переподключения
+  while (retryCount < maxRetries) {
+    try {
+      await connectModbusClient(connectionSettings)
+      console.log('Успешно переподключились к Modbus устройству')
+      return // Выход из цикла, если переподключение прошло успешно
+    } catch (err) {
+      logger.error(`Ошибка переподключения к Modbus (попытка ${retryCount + 1}/${maxRetries}): ${err.message}`)
+      await new Promise((resolve) => setTimeout(resolve, 3000)) // Ждем 3 секунды перед следующей попыткой
+      retryCount++
+    }
+  }
+  logger.error('Не удалось переподключиться к Modbus устройству после нескольких попыток.')
+}
+
+async function connectModbusClient(connectionSettings) {
+  await client.connectRTU(connectionSettings.connect_rtu, {
+    baudRate: connectionSettings.baudRate,
+    parity: connectionSettings.parity,
+    stopBits: connectionSettings.stopBits,
+    dataBits: connectionSettings.dataBits,
+  })
 }
 
 async function displayMeasurements() {
