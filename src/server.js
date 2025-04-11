@@ -10,8 +10,7 @@ const Database = require('./database')
 const db = new Database()
 
 const app = express()
-const chatId = 1029163005
-let bot
+let bot, chatId
 
 async function initializeTelegramBot() {
   const connectionSettings = await db.getConnectionSettings()
@@ -19,27 +18,23 @@ async function initializeTelegramBot() {
     throw new Error('Настройки подключения не найдены в базе данных.')
   }
 
-  // Устанавливаем прокси, если он есть
   process.env.HTTPS_PROXY = connectionSettings.proxy || ''
-
-  // Инициализируем Telegram-бота
+  chatId = connectionSettings.tgUserId
   bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
   bot.on('polling_error', (error) => {
     logger.error(`Ошибка Telegram бота: ${error.message}`)
-
-    // Если ошибка связана с подключением, пытаемся пересоздать соединение
     if (botReconnectAttempts < maxReconnectAttempts) {
       botReconnectAttempts++
       setTimeout(() => {
         initializeTelegramBot()
           .then(() => {
             logger.info('Telegram бот успешно переподключен')
-            botReconnectAttempts = 0 // сбрасываем счетчик попыток
+            botReconnectAttempts = 0
           })
           .catch((e) => {
             logger.error('Не удалось переподключить Telegram бота:', e)
           })
-      }, 5000) // Попробуем через 5 секунд
+      }, 5000)
     }
   })
 }
@@ -304,12 +299,12 @@ app.put('/api/sensors', async (req, res) => {
 })
 
 app.put('/api/settings', async (req, res) => {
-  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy } = req.body
+  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy } = req.body
   console.log(req.body)
 
   // Сохраняем настройки в базе данных
   try {
-    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy)
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy)
 
     // Закрываем текущее соединение
     if (isPortOpen) {

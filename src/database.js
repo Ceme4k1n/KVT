@@ -55,6 +55,7 @@ class Database {
                 parity TEXT,
                 stopBits INTEGER,
                 dataBits INTEGER,
+                tgUserId INTEGER,
                 tgToken TEXT,
                 proxy TEXT
           )`)
@@ -160,7 +161,7 @@ class Database {
     })
   }
 
-  saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgToken, proxy) {
+  saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy) {
     return new Promise((resolve, reject) => {
       this.db.get(`SELECT * FROM connection_settings WHERE id = ?`, [1], (err, row) => {
         if (err) {
@@ -192,6 +193,10 @@ class Database {
             updates.push('dataBits = ?')
             parameters.push(dataBits)
           }
+          if (tgUserId !== undefined && tgUserId !== '') {
+            updates.push('tgUserId = ?')
+            parameters.push(tgUserId)
+          }
           if (tgToken !== undefined && tgToken !== '') {
             updates.push('tgToken = ?')
             parameters.push(tgToken)
@@ -217,9 +222,9 @@ class Database {
           }
         } else {
           this.db.run(
-            `INSERT INTO connection_settings (connect_rtu, baudRate, parity, stopBits, dataBits) 
-                     VALUES (?, ?, ?, ?, ?)`,
-            [connect_rtu || null, baudRate || null, parity || null, stopBits || null, dataBits || null],
+            `INSERT INTO connection_settings (connect_rtu, baudRate, parity, stopBits, dataBits,tgUserId, tgToken, proxy) 
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [connect_rtu || null, baudRate || null, parity || null, stopBits || null, dataBits || null, tgUserId || null, tgToken || null, proxy || null],
             (err) => {
               if (err) {
                 logger.error('Ошибка сохранения новых настроек подключения:', err)
