@@ -66,9 +66,15 @@ app.use(express.static('public'))
 
 const client = new ModbusRTU()
 const sensorData = []
+const sensorStatus = {} // Объект для отслеживания состояния датчиков
 
 async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
   const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
+  await bot.sendMessage(chatId, message)
+}
+
+async function sendReturningToNormalNotification(sensorName, temperature, humidity) {
+  const message = `Датчик ${sensorName} вернулся в норму:\nТемпература: ${temperature.toFixed(1)}°C\nВлажность: ${humidity.toFixed(1)}%`
   await bot.sendMessage(chatId, message)
 }
 
@@ -140,9 +146,19 @@ async function startReading() {
           if (threshold) {
             if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
               isOutOfBounds = true // Если данные выходят за порог
-              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`) // Логируем предупреждение
+              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
 
+              // Отправляем уведомление о превышении
               await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
+
+              // Сохраняем состояние превышения порога
+              sensorStatus[sensorId] = 'exceeded'
+            } else {
+              // Если значения возвращаются в норму
+              if (sensorStatus[sensorId] === 'exceeded') {
+                sensorStatus[sensorId] = 'normal' // Обновляем состояние
+                await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
+              }
             }
           }
 
