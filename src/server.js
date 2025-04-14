@@ -67,8 +67,8 @@ app.use(express.static('public'))
 const client = new ModbusRTU()
 const sensorData = []
 
-async function sendTelegramNotification(sensorName, temperature, humidity) {
-  const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C\nВлажность: ${humidity.toFixed(1)}%`
+async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
+  const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
   await bot.sendMessage(chatId, message)
 }
 
@@ -140,9 +140,9 @@ async function startReading() {
           if (threshold) {
             if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
               isOutOfBounds = true // Если данные выходят за порог
-              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C, Влажность ${humidity.toFixed(1)}%`) // Логируем предупреждение
+              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`) // Логируем предупреждение
 
-              await sendTelegramNotification(sensorNames[sensorId], temperature, humidity)
+              await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
             }
           }
 

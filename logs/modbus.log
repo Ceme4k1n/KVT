@@ -25,3 +25,45 @@
 {"level":"warn","message":"Пороговое значение превышено для датчика Датчик 1: Температура 23.0°C, Влажность 27.0%","timestamp":"2025-04-11T07:54:36.563Z"}
 {"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-11T07:54:40.899Z"}
 {"level":"warn","message":"Пороговое значение превышено для датчика Датчик 1: Температура 23.0°C, Влажность 27.0%","timestamp":"2025-04-11T07:54:46.451Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:28:06.403Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:28:16.408Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C, Влажность 30.0%","timestamp":"2025-04-14T06:28:31.946Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 29.0°C, Влажность 30.0%","timestamp":"2025-04-14T06:28:37.085Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:28:41.434Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12, Влажность 30.0% MAX:12","timestamp":"2025-04-14T06:33:27.475Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12, Влажность 30.0% MAX:12","timestamp":"2025-04-14T06:33:32.572Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12, Влажность 30.0% MAX:12","timestamp":"2025-04-14T06:33:37.505Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:37:17.218Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Cannot read properties of undefined (reading 'temperature_max')","timestamp":"2025-04-14T06:37:17.222Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:37:22.127Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Cannot read properties of undefined (reading 'temperature_max')","timestamp":"2025-04-14T06:37:22.130Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:37:27.284Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Cannot read properties of undefined (reading 'temperature_max')","timestamp":"2025-04-14T06:37:27.286Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:37:32.032Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Cannot read properties of undefined (reading 'temperature_max')","timestamp":"2025-04-14T06:37:32.034Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:37:37.188Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Cannot read properties of undefined (reading 'temperature_max')","timestamp":"2025-04-14T06:37:37.190Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:38:08.228Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:39:23.253Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:39:57.747Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:02.637Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:40:07.252Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:12.812Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:13.669Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:40:17.252Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:22.702Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:23.559Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:40:27.266Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Скип: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:32.753Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:12 MIN:12, Влажность 30.0% MAX:12 MIN:12","timestamp":"2025-04-14T06:40:33.568Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:40:37.268Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:111 MIN:12, Влажность 30.0% MAX:121 MIN:121","timestamp":"2025-04-14T06:40:43.193Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:111 MIN:12, Влажность 30.0% MAX:121 MIN:121","timestamp":"2025-04-14T06:40:48.287Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:40:52.277Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:111 MIN:12, Влажность 30.0% MAX:121 MIN:121","timestamp":"2025-04-14T06:40:58.388Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:41:02.277Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:111 MIN:12, Влажность 30.0% MAX:121 MIN:121","timestamp":"2025-04-14T06:41:08.358Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:41:12.302Z"}
+{"level":"warn","message":"Пороговое значение превышено для датчика Датчик 2: Температура 22.0°C MAX:111 MIN:12, Влажность 30.0% MAX:121 MIN:121","timestamp":"2025-04-14T06:41:18.408Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:41:22.306Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T06:41:47.329Z"}
