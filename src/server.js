@@ -23,6 +23,19 @@ async function initializeTelegramBot() {
   bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
   bot.on('polling_error', (error) => {
     logger.error(`Ошибка Telegram бота: ${error.message}`)
+    if (botReconnectAttempts < maxReconnectAttempts) {
+      botReconnectAttempts++
+      setTimeout(() => {
+        initializeTelegramBot()
+          .then(() => {
+            logger.info('Telegram бот успешно переподключен')
+            botReconnectAttempts = 0
+          })
+          .catch((e) => {
+            logger.error('Не удалось переподключить Telegram бота:', e)
+          })
+      }, 5000)
+    }
   })
 }
 
@@ -92,6 +105,12 @@ async function startReading() {
     })
     isPortOpen = true
 
+    // await client.connectRTU('COM4', {
+    //   baudRate: 115200,
+    //   parity: 'none',
+    //   stopBits: 1,
+    //   dataBits: 8,
+    // })
     console.log('Подключение к Modbus устройству успешно')
 
     await client.setID(1)
@@ -111,58 +130,54 @@ async function startReading() {
           const humidityAddress = 30001 + i * 2 // Влага
           const statusAddress = 40000 + i // Статус
 
-          try {
-            const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
-            const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
-            const statusData = await client.readHoldingRegisters(statusAddress, 1)
+          const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
+          const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
+          const statusData = await client.readHoldingRegisters(statusAddress, 1)
 
-            const sensorId = i + 1
-            const temperature = temperatureData.data[0] / 256
-            const humidity = humidityData.data[0] / 256
-            const status = (statusData.data[0] / 256) | 0
+          const sensorId = i + 1
+          const temperature = temperatureData.data[0] / 256
+          const humidity = humidityData.data[0] / 256
+          const status = (statusData.data[0] / 256) | 0
 
-            // Проверяем пороговые значения
-            const threshold = thresholdMap[sensorId]
-            let isOutOfBounds = false
+          // Проверяем пороговые значения
+          const threshold = thresholdMap[sensorId]
+          let isOutOfBounds = false
 
-            if (threshold) {
-              if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
-                isOutOfBounds = true // Если данные выходят за порог
-                logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
+          if (threshold) {
+            if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
+              isOutOfBounds = true // Если данные выходят за порог
+              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
 
-                // Проверяем, отправляли ли мы уведомление за последний час
-                const now = Date.now()
-                if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
-                  await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
-                  notificationTimes[sensorId] = now // Обновляем время последнего уведомления
-                }
+              // Проверяем, отправляли ли мы уведомление за последний час
+              const now = Date.now()
+              if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
+                await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
+                notificationTimes[sensorId] = now // Обновляем время последнего уведомления
+              }
 
-                // Сохраняем состояние превышения порога
-                sensorStatus[sensorId] = 'exceeded'
-              } else {
-                if (sensorStatus[sensorId] === 'exceeded') {
-                  sensorStatus[sensorId] = 'normal'
-                  await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
-                  notificationTimes[sensorId] = null
-                }
+              // Сохраняем состояние превышения порога
+              sensorStatus[sensorId] = 'exceeded'
+            } else {
+              if (sensorStatus[sensorId] === 'exceeded') {
+                sensorStatus[sensorId] = 'normal'
+                await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
+                notificationTimes[sensorId] = null
               }
             }
+          }
 
-            sensorData[i] = {
-              id: sensorId,
-              name: sensorNames[sensorId] || `Датчик ${sensorId}`,
-              temperature: temperature,
-              humidity: humidity,
-              status: status,
-              timestamp: new Date().toISOString(),
-              isOutOfBounds: isOutOfBounds,
-              temperatureMax: threshold ? threshold.temperature_max : null,
-              temperatureMin: threshold ? threshold.temperature_min : null,
-              humidityMax: threshold ? threshold.humidity_max : null,
-              humidityMin: threshold ? threshold.humidity_min : null,
-            }
-          } catch (error) {
-            logger.error(`Ошибка при чтении данных для датчика ${sensorId}: ${error.message}`)
+          sensorData[i] = {
+            id: sensorId,
+            name: sensorNames[sensorId] || `Датчик ${sensorId}`,
+            temperature: temperature,
+            humidity: humidity,
+            status: status,
+            timestamp: new Date().toISOString(),
+            isOutOfBounds: isOutOfBounds,
+            temperatureMax: threshold ? threshold.temperature_max : null,
+            temperatureMin: threshold ? threshold.temperature_min : null,
+            humidityMax: threshold ? threshold.humidity_max : null,
+            humidityMin: threshold ? threshold.humidity_min : null,
           }
         }
 
@@ -234,7 +249,6 @@ initializeTelegramBot()
   .catch((err) => {
     console.error('Ошибка инициализации Telegram бота:', err)
   })
-
 app.get('/api/sensors', async (req, res) => {
   try {
     res.json(sensorData)

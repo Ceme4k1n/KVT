@@ -99,3 +99,525 @@
 {"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:33:59.475Z"}
 {"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:34:07.086Z"}
 {"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:34:14.726Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:37:22.880Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:25.207Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:37:30.506Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:35.624Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:37:38.099Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:40.026Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:44.347Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:45.628Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:37:45.700Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:50.036Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:37:53.293Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:54.362Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:37:55.645Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:38:06.945Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:38:14.603Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:38:22.183Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:38:52.373Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:38:53.617Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:39:01.204Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:39:08.780Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:39:16.362Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:39:17.415Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:39:21.369Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T11:39:23.034Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:39:23.964Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:41:21.569Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Data length error, expected 7 got 2","timestamp":"2025-04-14T11:41:26.651Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:41:29.165Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:41:36.766Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.472Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.477Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.482Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.487Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.491Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.495Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.499Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.502Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.505Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:41.507Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:44.333Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:44.338Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-14T11:41:44.340Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:44.345Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:41:44.381Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.471Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.476Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.480Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.484Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.488Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.492Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.495Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.499Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.503Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:46.506Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.336Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.339Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.342Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.345Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.348Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.351Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.354Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.357Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.359Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:49.363Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:41:51.968Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.357Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.361Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.365Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.368Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.372Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.377Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.380Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.384Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.388Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:41:52.391Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:42:10.724Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:42:18.305Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:42:30.191Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:42:37.739Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:42:45.316Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.955Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.960Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.966Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.970Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.974Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.977Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.981Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.984Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.989Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:42:47.992Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:51:39.229Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Data length error, expected 7 got 1","timestamp":"2025-04-14T11:51:40.301Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:51:46.812Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.925Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.930Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.936Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.941Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.945Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.949Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.953Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.958Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.963Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:46.966Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.280Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.284Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.288Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.291Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.295Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.298Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.301Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.304Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.309Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:50.312Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.761Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.765Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.770Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.774Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.777Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.780Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.783Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.787Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.791Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:53.795Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:51:54.386Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Data length error, expected 7 got 4","timestamp":"2025-04-14T11:51:56.940Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.774Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.778Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.783Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.787Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.791Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.795Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.798Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.801Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.804Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:51:58.808Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.955Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.960Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.964Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.969Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.973Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.977Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.981Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.984Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.987Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:01.992Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:01.994Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.316Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.321Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.325Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.330Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.334Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.370Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.381Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.384Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.390Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:05.393Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.808Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.812Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.817Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.821Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.825Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.830Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.833Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.836Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-14T11:52:08.839Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:08.842Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:09.585Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.971Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.976Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.980Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.985Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.989Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.993Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.996Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:11.999Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:12.002Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:12.006Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:15.342Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:15.347Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:15.352Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-14T11:52:15.354Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:15.358Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.978Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.983Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.988Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.991Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.994Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:16.997Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:17.000Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:17.003Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:17.007Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:17.010Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:17.186Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:20.353Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:20.358Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:20.362Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:20.366Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:20.371Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:21.989Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:21.994Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:21.998Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.003Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.007Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.012Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.015Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.018Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.021Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:22.025Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:24.819Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.358Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.361Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.364Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.368Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.372Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.375Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.379Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.382Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.385Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:25.390Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.868Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.878Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.881Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.885Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.889Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.893Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.896Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.899Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.901Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:28.905Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.000Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.003Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.006Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.009Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.012Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.015Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.017Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.020Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.023Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:32.027Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:32.402Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.393Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.395Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.398Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.401Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.404Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.407Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.411Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.415Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.419Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:35.421Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.899Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.904Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.909Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.913Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.917Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.921Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.924Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.929Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.933Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:38.936Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:40.008Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.029Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.033Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.037Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.042Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.047Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.051Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.055Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.059Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.064Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:42.067Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.412Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.415Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.417Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.420Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.423Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.427Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.429Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.432Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.435Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:45.438Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:47.553Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.913Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.918Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.922Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.927Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.931Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.935Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.938Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.942Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.946Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:48.949Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.045Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.050Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.055Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.059Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.062Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.065Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.068Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.071Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.073Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:52.078Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:52:55.161Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.438Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.443Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.448Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.452Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.456Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.461Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.465Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.469Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.472Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:55.475Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.924Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.929Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.933Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.938Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.942Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.947Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.952Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.956Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.959Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:52:58.963Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.069Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.073Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.078Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.083Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.088Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.093Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.098Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.103Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.118Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:02.127Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:02.746Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.459Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.464Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.468Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.473Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.477Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.481Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.485Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.488Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.492Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:05.496Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.934Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.937Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.940Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.943Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.946Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.949Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.952Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.955Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.957Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:08.961Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:10.326Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.080Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.085Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.088Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.092Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.096Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.100Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.103Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.107Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.111Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:12.115Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.481Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.486Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.490Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.494Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.498Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.503Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.506Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.510Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.513Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:15.515Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:17.916Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.947Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.951Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.956Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.960Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.964Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.967Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.971Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.976Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.980Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:18.983Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.087Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.090Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.093Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.095Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.098Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.101Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.104Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.107Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.109Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:22.113Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:25.480Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:25.493Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:25.498Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:25.502Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.104Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.109Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.113Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.118Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.122Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.126Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.130Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.134Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.137Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:27.140Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.497Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.501Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.506Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.509Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.513Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.517Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.520Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.525Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.529Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:30.532Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:33.048Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:33.962Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T11:53:33.967Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:48.279Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:53:55.894Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:54:03.497Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Data length error, expected 7 got 1","timestamp":"2025-04-14T11:57:31.751Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:57:31.944Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T11:57:39.531Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:04:43.578Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:04:51.081Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:04:58.679Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:05:06.240Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:05:30.674Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:05:38.550Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:05:46.121Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:05:53.710Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:06:01.261Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:06:08.854Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:06:50.320Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.056Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 2: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.062Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 3: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.068Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 4: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-14T12:06:53.072Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 5: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.078Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 6: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.084Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 7: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.088Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 8: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.092Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 9: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.098Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 10: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T12:06:53.101Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:06:57.891Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:05.492Z"}
+{"level":"error","message":"Ошибка при чтении данных для датчика 1: CRC error","timestamp":"2025-04-14T12:07:08.077Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:13.097Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:20.639Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:31.400Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:48.709Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:07:56.259Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:08:03.864Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:08:11.454Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:40:40.330Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:00.008Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:07.592Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:15.161Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:18.676Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:22.767Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:30.350Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:32.810Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:36.591Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:37.898Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:38.625Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:42.836Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:45.480Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:46.611Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:48.637Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:52.857Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:41:53.104Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:56.641Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:41:58.655Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:42:00.764Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:42:02.873Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:42:06.663Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:44:46.673Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:44:54.249Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:45:01.822Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:45:09.418Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:45:16.971Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:56:55.116Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:57:02.691Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:57:07.880Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:57:10.265Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:57:17.821Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:58:27.906Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:30.635Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:58:35.500Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:35.639Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:40.657Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:58:43.060Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:45.663Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:58:50.605Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:50.676Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:58:55.675Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:58:58.148Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:59:00.678Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:59:05.690Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:59:05.730Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:59:10.690Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:59:13.302Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:59:15.698Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: sensorId is not defined","timestamp":"2025-04-14T12:59:20.714Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T12:59:20.868Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:00.246Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:07.823Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:15.419Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:22.971Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-14T13:01:23.114Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-14T13:01:23.116Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-14T13:01:26.225Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:30.563Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-14T13:01:33.147Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:38.148Z"}
+{"level":"error","message":"Ошибка Telegram бота: ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running","timestamp":"2025-04-14T13:01:45.736Z"}
