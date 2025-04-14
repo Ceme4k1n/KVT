@@ -67,6 +67,7 @@ app.use(express.static('public'))
 const client = new ModbusRTU()
 const sensorData = []
 const sensorStatus = {} // Объект для отслеживания состояния датчиков
+const notificationTimes = {} // Объект для хранения времени последнего уведомления о превышении
 
 async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
   const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
@@ -110,15 +111,14 @@ async function startReading() {
     //   stopBits: 1,
     //   dataBits: 8,
     // })
-    //Добавить адрес прибора
     console.log('Подключение к Modbus устройству успешно')
 
     await client.setID(1)
 
     setInterval(async () => {
       try {
-        const sensorNames = await loadSensorNames() // Загружаем названия датчиков из базы
-        const thresholds = await db.fetchAllThreshold() // Загружаем пороговые значения
+        const sensorNames = await loadSensorNames()
+        const thresholds = await db.fetchAllThreshold()
 
         const thresholdMap = {}
         thresholds.forEach((threshold) => {
@@ -148,8 +148,12 @@ async function startReading() {
               isOutOfBounds = true // Если данные выходят за порог
               logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
 
-              // Отправляем уведомление о превышении
-              await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
+              // Проверяем, отправляли ли мы уведомление за последний час
+              const now = Date.now()
+              if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
+                await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
+                notificationTimes[sensorId] = now // Обновляем время последнего уведомления
+              }
 
               // Сохраняем состояние превышения порога
               sensorStatus[sensorId] = 'exceeded'
@@ -158,6 +162,7 @@ async function startReading() {
               if (sensorStatus[sensorId] === 'exceeded') {
                 sensorStatus[sensorId] = 'normal' // Обновляем состояние
                 await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
+                notificationTimes[sensorId] = null // Сбрасываем время уведомления
               }
             }
           }
