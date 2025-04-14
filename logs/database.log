@@ -44,3 +44,13 @@
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T06:39:52.222Z"}
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T07:17:53.416Z"}
 {"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T07:27:40.349Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T08:36:06.253Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:10:32.250Z"}
+{"__augmented":true,"code":"SQLITE_ERROR","errno":1,"level":"error","message":"Ошибка при получении настроек подключения: SQLITE_ERROR: no such table: connection_settings","stack":"Error: SQLITE_ERROR: no such table: connection_settings\n--> in Database#get('SELECT * FROM connection_settings WHERE id = ?', [ 1 ], [Function (anonymous)])\n    at C:\\Progs\\KVT\\src\\database.js:245:15\n    at new Promise (<anonymous>)\n    at Database.getConnectionSettings (C:\\Progs\\KVT\\src\\database.js:244:12)\n    at initializeTelegramBot (C:\\Progs\\KVT\\src\\server.js:16:39)\n    at Object.<anonymous> (C:\\Progs\\KVT\\src\\server.js:243:1)\n    at Module._compile (node:internal/modules/cjs/loader:1554:14)\n    at Object..js (node:internal/modules/cjs/loader:1706:10)\n    at Module.load (node:internal/modules/cjs/loader:1289:32)\n    at Function._load (node:internal/modules/cjs/loader:1108:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)\n    at node:internal/main/run_main_module:36:49","timestamp":"2025-04-14T11:10:32.258Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:10:36.317Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:12:06.724Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:18:56.554Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:19:11.424Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:20:34.684Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:30:11.462Z"}
+{"level":"info","message":"Подключение к базе данных успешно","timestamp":"2025-04-14T11:33:52.187Z"}

@@ -50,11 +50,12 @@ class Database {
       // Таблица для хранения настроек подключения
       this.db.run(`CREATE TABLE IF NOT EXISTS connection_settings (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                connect_rtu TEXT,
+                sensors_number INTEGER DEFAULT 10,
+                connect_rtu TEXT DEFAULT 'COM4',
                 baudRate INTEGER CHECK (baudRate IN (9600, 115200, 19200, 38400)),
-                parity TEXT,
-                stopBits INTEGER,
-                dataBits INTEGER,
+                parity TEXT DEFAULT 'none',
+                stopBits INTEGER DEFAULT 1,
+                dataBits INTEGER DEFAULT 8,
                 tgUserId INTEGER,
                 tgToken TEXT,
                 proxy TEXT
