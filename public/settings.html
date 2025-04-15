@@ -45,6 +45,9 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s;
+        display: block; /* Центрируем кнопку, делаем блочным элементом */
+        margin-left: auto; /* Сброс отступа */
+        margin-right: auto; /* Центрируем кнопку */
       }
       button:hover {
         background-color: #27ae60; /* Темнее при наведении */
@@ -68,6 +71,11 @@
       }
       .nav-button:hover {
         background-color: #2980b9; /* Темнее при наведении */
+      }
+      .radio-group {
+        display: flex; /* Используем flexbox для горизонтального расположения */
+        justify-content: space-between; /* Равномерное распределение между кнопками */
+        margin-top: 10px; /* Отступ сверху */
       }
     </style>
   </head>
@@ -115,6 +123,18 @@
       <label for="proxy">Прокси:</label>
       <input type="text" id="proxy" placeholder="Введите возможный прокси" required />
 
+      <label>Использовать прокси?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="useProxy" value="true" checked /> Да</label>
+        <label><input type="radio" name="useProxy" value="false" /> Нет</label>
+      </div>
+
+      <label>Использовать телеграм бота?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="useTelegram" value="true" checked /> Да</label>
+        <label><input type="radio" name="useTelegram" value="false" /> Нет</label>
+      </div>
+
       <button id="saveSettings">Сохранить настройки</button>
     </div>
 
@@ -129,6 +149,8 @@
           tgUserId: document.getElementById('tgUserId').value,
           tgToken: document.getElementById('tgToken').value,
           proxy: document.getElementById('proxy').value,
+          useProxy: document.querySelector('input[name="useProxy"]:checked').value, // Получаем значение радиокнопки для прокси
+          useTelegram: document.querySelector('input[name="useTelegram"]:checked').value, // Получаем значение радиокнопки для телеграм бота
         }
 
         fetch('/api/settings', {

@@ -198,15 +198,11 @@ class Database {
             updates.push('tgUserId = ?')
             parameters.push(tgUserId)
           }
-          if (tgToken !== undefined && tgToken !== '') {
-            updates.push('tgToken = ?')
-            parameters.push(tgToken)
-          }
+          updates.push('tgToken = ?')
+          parameters.push(tgToken)
 
-          if (proxy !== undefined && proxy !== '') {
-            updates.push('proxy = ?')
-            parameters.push(proxy)
-          }
+          updates.push('proxy = ?')
+          parameters.push(proxy)
 
           if (updates.length > 0) {
             const sql = `UPDATE connection_settings SET ${updates.join(', ')} WHERE id = ?`

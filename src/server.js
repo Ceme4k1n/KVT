@@ -18,9 +18,15 @@ async function initializeTelegramBot() {
     throw new Error('Настройки подключения не найдены в базе данных.')
   }
 
+  if (!connectionSettings.tgToken || connectionSettings.tgToken.trim() === '') {
+    console.warn('Телеграм токен недоступен или пуст. Инициализация бота отменена, но чтение датчиков будет продолжено.')
+    return
+  }
+
   process.env.HTTPS_PROXY = connectionSettings.proxy || ''
   chatId = connectionSettings.tgUserId
   bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
+
   bot.on('polling_error', (error) => {
     logger.error(`Ошибка Telegram бота: ${error.message}`)
     if (botReconnectAttempts < maxReconnectAttempts) {
@@ -38,7 +44,6 @@ async function initializeTelegramBot() {
     }
   })
 }
-
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
@@ -180,27 +185,25 @@ async function startReading() {
           await saveToDatabase(sensorData)
         } catch (err) {
           logger.error(`Ошибка при чтении датчиков: ${err.message}`)
-          isReadingActive = false // Сбрасываем флаг при ошибке
-          clearInterval(intervalId) // Останавливаем чтение
-          resolve() // Завершаем промис, чтобы дать возможность обновить настройки
+          isReadingActive = false
+          clearInterval(intervalId)
+          resolve()
         }
-      }, 10000) // Интервал чтения данных
+      }, 10000)
 
-      // Таймаут на завершение операции
       setTimeout(() => {
         clearInterval(intervalId)
-        isReadingActive = false // Сбрасываем флаг
+        isReadingActive = false
         console.log('Чтение данных завершено по таймауту')
-        resolve() // Завершение промиса
-      }, 60000) // Устанавливаем таймаут 60 секунд
+        resolve()
+      }, 60000)
     })
   } catch (err) {
     console.error('Ошибка при подключении:', err)
-    isReadingActive = false // Сбрасываем флаг при ошибке подключения
+    isReadingActive = false
   }
 }
 
-// Функция для повторного подключения к Modbus
 async function reconnectModbusClient(connectionSettings) {
   let retryCount = 0
   const maxRetries = 5 // Максимальное количество попыток
@@ -245,14 +248,18 @@ async function displayThresholds() {
   }
 }
 
+// Вызываем функцию
 initializeTelegramBot()
   .then(() => {
-    startReading().then(() => {
+    return startReading().then(() => {
       displayThresholds()
     })
   })
   .catch((err) => {
     console.error('Ошибка инициализации Telegram бота:', err)
+    startReading().then(() => {
+      displayThresholds()
+    })
   })
 
 app.get('/api/sensors', async (req, res) => {
@@ -324,11 +331,15 @@ app.put('/api/sensors', async (req, res) => {
 })
 
 app.put('/api/settings', async (req, res) => {
-  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy } = req.body
+  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy, useTelegram, useProxy } = req.body
   console.log(req.body)
 
   try {
-    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy)
+    const proxyValue = useProxy === 'true' ? proxy : ''
+    const tgTokenValue = useTelegram === 'true' ? tgToken : ''
+
+    // Сохраняем настройки в БД
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgTokenValue, proxyValue)
 
     if (isReadingActive) {
       await new Promise((resolve) => {
