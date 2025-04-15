@@ -68,6 +68,8 @@ const client = new ModbusRTU()
 const sensorData = []
 const sensorStatus = {} // Объект для отслеживания состояния датчиков
 const notificationTimes = {} // Объект для хранения времени последнего уведомления о превышении
+let isPortOpen = false // Добавлено: флаг для отслеживания состояния порта
+let isReadingActive = false // Флаг для отслеживания активности чтения данных
 
 async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
   const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
@@ -90,6 +92,7 @@ async function saveToDatabase(data) {
 }
 
 async function startReading() {
+  isReadingActive = true // Устанавливаем флаг о том, что чтение активно
   try {
     const connectionSettings = await db.getConnectionSettings()
     if (!connectionSettings) {
@@ -104,109 +107,111 @@ async function startReading() {
       dataBits: connectionSettings.dataBits,
     })
     isPortOpen = true
-
-    // await client.connectRTU('COM4', {
-    //   baudRate: 115200,
-    //   parity: 'none',
-    //   stopBits: 1,
-    //   dataBits: 8,
-    // })
     console.log('Подключение к Modbus устройству успешно')
 
     await client.setID(1)
 
-    setInterval(async () => {
-      try {
-        const sensorNames = await loadSensorNames()
-        const thresholds = await db.fetchAllThreshold()
+    return new Promise((resolve) => {
+      const intervalId = setInterval(async () => {
+        try {
+          const sensorNames = await loadSensorNames()
+          const thresholds = await db.fetchAllThreshold()
 
-        const thresholdMap = {}
-        thresholds.forEach((threshold) => {
-          thresholdMap[threshold.sensor_id] = threshold // создаём карту порогов по id датчика
-        })
+          const thresholdMap = {}
+          thresholds.forEach((threshold) => {
+            thresholdMap[threshold.sensor_id] = threshold // создаём карту порогов по id датчика
+          })
 
-        for (let i = 0; i < connectionSettings.sensors_number; i++) {
-          const temperatureAddress = 30000 + i * 2 // Температура
-          const humidityAddress = 30001 + i * 2 // Влага
-          const statusAddress = 40000 + i // Статус
+          for (let i = 0; i < connectionSettings.sensors_number; i++) {
+            const temperatureAddress = 30000 + i * 2 // Температура
+            const humidityAddress = 30001 + i * 2 // Влага
+            const statusAddress = 40000 + i // Статус
 
-          const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
-          const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
-          const statusData = await client.readHoldingRegisters(statusAddress, 1)
+            const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
+            const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
+            const statusData = await client.readHoldingRegisters(statusAddress, 1)
 
-          const sensorId = i + 1
-          const temperature = temperatureData.data[0] / 256
-          const humidity = humidityData.data[0] / 256
-          const status = (statusData.data[0] / 256) | 0
+            const sensorId = i + 1
+            const temperature = temperatureData.data[0] / 256
+            const humidity = humidityData.data[0] / 256
+            const status = (statusData.data[0] / 256) | 0
 
-          // Проверяем пороговые значения
-          const threshold = thresholdMap[sensorId]
-          let isOutOfBounds = false
+            const threshold = thresholdMap[sensorId]
+            let isOutOfBounds = false
 
-          if (threshold) {
-            if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
-              isOutOfBounds = true // Если данные выходят за порог
-              logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
+            if (threshold) {
+              if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
+                isOutOfBounds = true
+                logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
 
-              // Проверяем, отправляли ли мы уведомление за последний час
-              const now = Date.now()
-              if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
-                await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
-                notificationTimes[sensorId] = now // Обновляем время последнего уведомления
-              }
+                const now = Date.now()
+                if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
+                  await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
+                  notificationTimes[sensorId] = now
+                }
 
-              // Сохраняем состояние превышения порога
-              sensorStatus[sensorId] = 'exceeded'
-            } else {
-              if (sensorStatus[sensorId] === 'exceeded') {
-                sensorStatus[sensorId] = 'normal'
-                await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
-                notificationTimes[sensorId] = null
+                sensorStatus[sensorId] = 'exceeded'
+              } else {
+                if (sensorStatus[sensorId] === 'exceeded') {
+                  sensorStatus[sensorId] = 'normal'
+                  await sendReturningToNormalNotification(sensorNames[sensorId], temperature, humidity)
+                  notificationTimes[sensorId] = null
+                }
               }
             }
+
+            sensorData[i] = {
+              id: sensorId,
+              name: sensorNames[sensorId] || `Датчик ${sensorId}`,
+              temperature: temperature,
+              humidity: humidity,
+              status: status,
+              timestamp: new Date().toISOString(),
+              isOutOfBounds: isOutOfBounds,
+              temperatureMax: threshold ? threshold.temperature_max : null,
+              temperatureMin: threshold ? threshold.temperature_min : null,
+              humidityMax: threshold ? threshold.humidity_max : null,
+              humidityMin: threshold ? threshold.humidity_min : null,
+            }
+
+            console.log(sensorData[i])
           }
 
-          sensorData[i] = {
-            id: sensorId,
-            name: sensorNames[sensorId] || `Датчик ${sensorId}`,
-            temperature: temperature,
-            humidity: humidity,
-            status: status,
-            timestamp: new Date().toISOString(),
-            isOutOfBounds: isOutOfBounds,
-            temperatureMax: threshold ? threshold.temperature_max : null,
-            temperatureMin: threshold ? threshold.temperature_min : null,
-            humidityMax: threshold ? threshold.humidity_max : null,
-            humidityMin: threshold ? threshold.humidity_min : null,
-          }
+          await saveToDatabase(sensorData)
+        } catch (err) {
+          logger.error(`Ошибка при чтении датчиков: ${err.message}`)
+          isReadingActive = false // Сбрасываем флаг при ошибке
+          clearInterval(intervalId) // Останавливаем чтение
+          resolve() // Завершаем промис, чтобы дать возможность обновить настройки
         }
+      }, 10000) // Интервал чтения данных
 
-        await saveToDatabase(sensorData)
-      } catch (err) {
-        if (err.message.includes('Port Not Open')) {
-          logger.error(`Ошибка при чтении датчиков: ${err.message}, пытаемся переподключиться...`)
-          await reconnectModbusClient(connectionSettings)
-        }
-        logger.error(`Ошибка при чтении датчиков: ${err.message}`)
-      }
-    }, 5000)
+      // Таймаут на завершение операции
+      setTimeout(() => {
+        clearInterval(intervalId)
+        isReadingActive = false // Сбрасываем флаг
+        console.log('Чтение данных завершено по таймауту')
+        resolve() // Завершение промиса
+      }, 60000) // Устанавливаем таймаут 60 секунд
+    })
   } catch (err) {
     console.error('Ошибка при подключении:', err)
+    isReadingActive = false // Сбрасываем флаг при ошибке подключения
   }
 }
 
 // Функция для повторного подключения к Modbus
 async function reconnectModbusClient(connectionSettings) {
   let retryCount = 0
-  const maxRetries = 5 // Максимальное количество попыток переподключения
+  const maxRetries = 5 // Максимальное количество попыток
   while (retryCount < maxRetries) {
     try {
       await connectModbusClient(connectionSettings)
       console.log('Успешно переподключились к Modbus устройству')
-      return // Выход из цикла, если переподключение прошло успешно
+      return
     } catch (err) {
       logger.error(`Ошибка переподключения к Modbus (попытка ${retryCount + 1}/${maxRetries}): ${err.message}`)
-      await new Promise((resolve) => setTimeout(resolve, 3000)) // Ждем 3 секунды перед следующей попыткой
+      await new Promise((resolve) => setTimeout(resolve, 3000))
       retryCount++
     }
   }
@@ -249,6 +254,7 @@ initializeTelegramBot()
   .catch((err) => {
     console.error('Ошибка инициализации Telegram бота:', err)
   })
+
 app.get('/api/sensors', async (req, res) => {
   try {
     res.json(sensorData)
@@ -321,17 +327,26 @@ app.put('/api/settings', async (req, res) => {
   const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy } = req.body
   console.log(req.body)
 
-  // Сохраняем настройки в базе данных
   try {
     await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy)
 
+    if (isReadingActive) {
+      await new Promise((resolve) => {
+        const checkActiveInterval = setInterval(() => {
+          if (!isReadingActive) {
+            clearInterval(checkActiveInterval)
+            resolve() // Завершаем, когда чтение завершено
+          }
+        }, 100)
+      })
+    }
+
     // Закрываем текущее соединение
     if (isPortOpen) {
-      await client.close() // Закрываем только если порт открыт
+      await client.close()
       isPortOpen = false
     }
 
-    // Перезапускаем чтение данных с новыми настройками
     await startReading()
 
     res.json({ message: 'Настройки успешно обновлены и соединение перезапущено.' })
