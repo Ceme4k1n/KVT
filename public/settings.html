@@ -114,6 +114,9 @@
       <label for="dataBits">Количество бит данных:</label>
       <input type="number" id="dataBits" value="8" min="5" max="8" />
 
+      <label for="regNumbers">Количество регистров:</label>
+      <input type="number" id="regNumbers" value="1" min="1" max="2" />
+
       <label for="tgUserId">Телеграм id:</label>
       <input type="number" id="tgUserId" placeholder="Введите телеграм id" required />
 
@@ -146,6 +149,7 @@
           parity: document.getElementById('parity').value,
           stopBits: parseInt(document.getElementById('stopBits').value),
           dataBits: parseInt(document.getElementById('dataBits').value),
+          regNumbers: parseInt(document.getElementById('regNumbers').value),
           tgUserId: document.getElementById('tgUserId').value,
           tgToken: document.getElementById('tgToken').value,
           proxy: document.getElementById('proxy').value,

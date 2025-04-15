@@ -331,7 +331,7 @@ app.put('/api/sensors', async (req, res) => {
 })
 
 app.put('/api/settings', async (req, res) => {
-  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy, useTelegram, useProxy } = req.body
+  const { connect_rtu, baudRate, parity, stopBits, dataBits, regNumbers, tgUserId, tgToken, proxy, useTelegram, useProxy } = req.body
   console.log(req.body)
 
   try {
@@ -339,7 +339,7 @@ app.put('/api/settings', async (req, res) => {
     const tgTokenValue = useTelegram === 'true' ? tgToken : ''
 
     // Сохраняем настройки в БД
-    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgTokenValue, proxyValue)
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, regNumbers, tgUserId, tgTokenValue, proxyValue)
 
     if (isReadingActive) {
       await new Promise((resolve) => {
