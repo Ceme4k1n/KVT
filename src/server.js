@@ -132,9 +132,9 @@ async function startReading() {
             const humidityAddress = 30001 + i * 2 // Влага
             const statusAddress = 40000 + i // Статус
 
-            const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
-            const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
-            const statusData = await client.readHoldingRegisters(statusAddress, 1)
+            const temperatureData = await client.readHoldingRegisters(temperatureAddress, connectionSettings.regNumbers)
+            const humidityData = await client.readHoldingRegisters(humidityAddress, connectionSettings.regNumbers)
+            const statusData = await client.readHoldingRegisters(statusAddress, connectionSettings.regNumbers)
 
             const sensorId = i + 1
             const temperature = temperatureData.data[0] / 256
