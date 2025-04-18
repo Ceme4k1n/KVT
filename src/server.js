@@ -132,6 +132,7 @@ async function startReading() {
             const humidityAddress = 30001 + i * 2 // Влага
             const statusAddress = 40000 + i // Статус
 
+            // Чтение данных
             const temperatureData = await client.readHoldingRegisters(temperatureAddress, connectionSettings.regNumbers)
             const humidityData = await client.readHoldingRegisters(humidityAddress, connectionSettings.regNumbers)
             const statusData = await client.readHoldingRegisters(statusAddress, connectionSettings.regNumbers)
@@ -141,6 +142,23 @@ async function startReading() {
             const humidity = humidityData.data[0] / 256
             const status = (statusData.data[0] / 256) | 0
 
+            const humidityValue = humidityData.data[0] // Значение из регистра
+
+            // Преобразуем значение в шестнадцатеричный формат
+            const hexValue = humidityValue.toString(16).toUpperCase().padStart(4, '0') // Обеспечиваем 4 символа
+
+            // Разбиваем на старшую и младшую часть
+            const highPart = hexValue.slice(0, 2) // Первые 2 символа (старший байт)
+            const lowPart = hexValue.slice(2) // Последние 2 символа (младший байт)
+
+            // Формирование строки запроса и ответа
+            const request = `01.03.${humidityAddress.toString(16).toUpperCase()}.${connectionSettings.regNumbers.toString(16).toUpperCase()}`
+            const response = `01.03.${(humidityData.data.length * 2).toString(16).toUpperCase()}.${highPart}.${lowPart}`
+
+            console.log(`Запрос: ${request}`)
+            console.log(`Ответ: ${response}`)
+
+            // Обработка порогов
             const threshold = thresholdMap[sensorId]
             let isOutOfBounds = false
 
