@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тестовые Логи</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #333;
+      }
+      #logContainer {
+        margin-top: 20px;
+        line-height: 1.5;
+      }
+      .logEntry {
+        background-color: #fff;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Логи запросов и ответов</h1>
+    <div id="logContainer"></div>
+
+    <script>
+      async function fetchLogs() {
+        try {
+          const response = await fetch('/api/sensors')
+          const sensors = await response.json()
+          const logContainer = document.getElementById('logContainer')
+          logContainer.innerHTML = '' // Очистка контейнера
+
+          sensors.forEach((sensor) => {
+            // Формируем запрос и ответ для этого датчика
+            const request = `Запрос: 01.03.${sensor.humidityAddress.toString(16).toUpperCase()}.01`
+            const response = `Ответ: 01.03.2.${sensor.humidityData.toString(16).padStart(2, '0').toUpperCase()}.00`
+
+            const logEntry = document.createElement('div')
+            logEntry.className = 'logEntry'
+            logEntry.innerText = `${request}\n${response}`
+            logContainer.appendChild(logEntry) // Добавляем запись в контейнер
+          })
+        } catch (error) {
+          console.error('Ошибка при получении лога:', error)
+        }
+      }
+
+      window.onload = fetchLogs
+    </script>
+  </body>
+</html>
