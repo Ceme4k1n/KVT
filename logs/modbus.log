@@ -13,3 +13,30 @@
 {"level":"error","message":"Ошибка переподключения к Modbus (попытка 4/5): Opening COM4: File not found","timestamp":"2025-04-21T10:22:36.705Z"}
 {"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:22:37.677Z"}
 {"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:22:39.821Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:29:17.860Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:29:17.866Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 2/5): Opening COM4: File not found","timestamp":"2025-04-21T10:29:20.884Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:29:22.864Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:29:23.999Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Data length error, expected 7 got 1","timestamp":"2025-04-21T10:30:04.120Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:30.113Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:31.419Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:35.118Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:36.432Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:40.121Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:30:41.435Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:33:12.725Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:33:12.730Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:33:15.834Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:33:51.663Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:01.676Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:11.680Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:36.273Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:43.236Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:49.270Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:34:56.287Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:34:59.273Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:34:59.276Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:35:02.389Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 6: Slave device busy (retry request again later)","timestamp":"2025-04-21T10:35:06.299Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: CRC error","timestamp":"2025-04-21T10:35:13.239Z"}

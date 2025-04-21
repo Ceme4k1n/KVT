@@ -40,8 +40,8 @@
 
           sensors.forEach((sensor) => {
             // Формируем запрос и ответ для этого датчика
-            const request = `Запрос: 01.03.${sensor.humidityAddress.toString(16).toUpperCase()}.01`
-            const response = `Ответ: 01.03.2.${sensor.humidityData.toString(16).padStart(2, '0').toUpperCase()}.00`
+            const request = `Запрос: 01.03.${sensor.request.toString(16).toUpperCase()}.01`
+            const response = `Ответ: 01.03.2.${sensor.response.toString(16).padStart(2, '0').toUpperCase()}.00`
 
             const logEntry = document.createElement('div')
             logEntry.className = 'logEntry'
@@ -52,6 +52,7 @@
           console.error('Ошибка при получении лога:', error)
         }
       }
+      setInterval(fetchLogs, 5000)
 
       window.onload = fetchLogs
     </script>

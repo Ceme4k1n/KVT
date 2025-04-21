@@ -147,6 +147,22 @@ async function startReading() {
           const humidity = humidityData.data[0] / 256
           const status = (statusData.data[0] / 256) | 0
 
+          const humidityValue = humidityData.data[0] // Значение из регистра
+
+          // Преобразуем значение в шестнадцатеричный формат
+          const hexValue = humidityValue.toString(16).toUpperCase().padStart(4, '0') // Обеспечиваем 4 символа
+
+          // Разбиваем на старшую и младшую часть
+          const highPart = hexValue.slice(0, 2) // Первые 2 символа (старший байт)
+          const lowPart = hexValue.slice(2) // Последние 2 символа (младший байт)
+
+          // Формирование строки запроса и ответа
+          const request = `01.03.${humidityAddress.toString(16).toUpperCase()}.${connectionSettings.regNumbers.toString(16).toUpperCase()}`
+          const response = `01.03.${(humidityData.data.length * 2).toString(16).toUpperCase()}.${highPart}.${lowPart}`
+
+          console.log(`Запрос: ${request}`)
+          console.log(`Ответ: ${response}`)
+
           // Проверяем пороговые значения
           const threshold = thresholdMap[sensorId]
           let isOutOfBounds = false
@@ -186,6 +202,8 @@ async function startReading() {
             temperatureMin: threshold ? threshold.temperature_min : null,
             humidityMax: threshold ? threshold.humidity_max : null,
             humidityMin: threshold ? threshold.humidity_min : null,
+            request: request,
+            response: response,
           }
           console.log(sensorData[i])
         }
@@ -194,13 +212,13 @@ async function startReading() {
       } catch (err) {
         if (err.message.includes('Port Not Open') && !isReconnecting) {
           logger.error(`Ошибка при чтении датчиков: ${err.message}, пытаемся переподключиться...`)
-          isReconnecting = true // Устанавливаем флаг
+          isReconnecting = true
           await reconnectModbusClient(connectionSettings)
-          isReconnecting = false // Сбрасываем флаг после успешного подключения или ошибки
+          isReconnecting = false
         }
         logger.error(`Ошибка при чтении датчиков: ${err.message}`)
       }
-    }, 5000)
+    }, 10000)
   } catch (err) {
     console.error('Ошибка при подключении:', err)
   }
