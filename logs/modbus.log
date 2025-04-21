@@ -1,1 +1,15 @@
-{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-15T12:18:57.663Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Modbus exception 2: Illegal data address (register not supported by device)","timestamp":"2025-04-15T12:18:57.663Z"}{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:20:45.834Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:20:45.840Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 2/5): Opening COM4: File not found","timestamp":"2025-04-21T10:20:48.844Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:20:50.837Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:20:50.839Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 3/5): Opening COM4: File not found","timestamp":"2025-04-21T10:20:51.855Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 2/5): Opening COM4: File not found","timestamp":"2025-04-21T10:20:53.847Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open, пытаемся переподключиться...","timestamp":"2025-04-21T10:22:27.661Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 1/5): Opening COM4: File not found","timestamp":"2025-04-21T10:22:27.667Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 2/5): Opening COM4: File not found","timestamp":"2025-04-21T10:22:30.684Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:22:32.675Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 3/5): Opening COM4: File not found","timestamp":"2025-04-21T10:22:33.693Z"}
+{"level":"error","message":"Ошибка переподключения к Modbus (попытка 4/5): Opening COM4: File not found","timestamp":"2025-04-21T10:22:36.705Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:22:37.677Z"}
+{"level":"error","message":"Ошибка при чтении датчиков: Port Not Open","timestamp":"2025-04-21T10:22:39.821Z"}

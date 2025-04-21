@@ -18,15 +18,9 @@ async function initializeTelegramBot() {
     throw new Error('Настройки подключения не найдены в базе данных.')
   }
 
-  if (!connectionSettings.tgToken || connectionSettings.tgToken.trim() === '') {
-    console.warn('Телеграм токен недоступен или пуст. Инициализация бота отменена, но чтение датчиков будет продолжено.')
-    return
-  }
-
   process.env.HTTPS_PROXY = connectionSettings.proxy || ''
   chatId = connectionSettings.tgUserId
   bot = new TelegramBot(connectionSettings.tgToken, { polling: true })
-
   bot.on('polling_error', (error) => {
     logger.error(`Ошибка Telegram бота: ${error.message}`)
     if (botReconnectAttempts < maxReconnectAttempts) {
@@ -44,6 +38,7 @@ async function initializeTelegramBot() {
     }
   })
 }
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
@@ -73,9 +68,6 @@ const client = new ModbusRTU()
 const sensorData = []
 const sensorStatus = {} // Объект для отслеживания состояния датчиков
 const notificationTimes = {} // Объект для хранения времени последнего уведомления о превышении
-let isPortOpen = false // Добавлено: флаг для отслеживания состояния порта
-let isReadingActive = false // Флаг для отслеживания активности чтения данных
-let isReconnecting = false
 
 async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
   const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
@@ -187,16 +179,15 @@ async function startReading() {
             humidityMax: threshold ? threshold.humidity_max : null,
             humidityMin: threshold ? threshold.humidity_min : null,
           }
-          console.log(sensorData[i])
         }
 
         await saveToDatabase(sensorData)
       } catch (err) {
         if (err.message.includes('Port Not Open') && !isReconnecting) {
-          logger.error(`Ошибка при чтении датчиков: ${err.message}, пытаемся переподключиться...`)
-          isReconnecting = true // Устанавливаем флаг
-          await reconnectModbusClient(connectionSettings)
-          isReconnecting = false // Сбрасываем флаг после успешного подключения или ошибки
+          logger.error(`Ошибка при чтении датчиков: ${err.message}, пытаемся переподключиться...`);
+          isReconnecting = true; // Устанавливаем флаг
+          await reconnectModbusClient(connectionSettings);
+          isReconnecting = false; // Сбрасываем флаг после успешного подключения или ошибки
         }
         logger.error(`Ошибка при чтении датчиков: ${err.message}`)
       }
@@ -206,17 +197,18 @@ async function startReading() {
   }
 }
 
+// Функция для повторного подключения к Modbus
 async function reconnectModbusClient(connectionSettings) {
   let retryCount = 0
-  const maxRetries = 5 // Максимальное количество попыток
+  const maxRetries = 5 // Максимальное количество попыток переподключения
   while (retryCount < maxRetries) {
     try {
       await connectModbusClient(connectionSettings)
       console.log('Успешно переподключились к Modbus устройству')
-      return
+      return // Выход из цикла, если переподключение прошло успешно
     } catch (err) {
       logger.error(`Ошибка переподключения к Modbus (попытка ${retryCount + 1}/${maxRetries}): ${err.message}`)
-      await new Promise((resolve) => setTimeout(resolve, 3000))
+      await new Promise((resolve) => setTimeout(resolve, 3000)) // Ждем 3 секунды перед следующей попыткой
       retryCount++
     }
   }
@@ -250,20 +242,15 @@ async function displayThresholds() {
   }
 }
 
-// Вызываем функцию
 initializeTelegramBot()
   .then(() => {
-    return startReading().then(() => {
+    startReading().then(() => {
       displayThresholds()
     })
   })
   .catch((err) => {
     console.error('Ошибка инициализации Telegram бота:', err)
-    startReading().then(() => {
-      displayThresholds()
-    })
   })
-
 app.get('/api/sensors', async (req, res) => {
   try {
     res.json(sensorData)
@@ -333,33 +320,20 @@ app.put('/api/sensors', async (req, res) => {
 })
 
 app.put('/api/settings', async (req, res) => {
-  const { connect_rtu, baudRate, parity, stopBits, dataBits, regNumbers, tgUserId, tgToken, proxy, useTelegram, useProxy } = req.body
+  const { connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy } = req.body
   console.log(req.body)
 
+  // Сохраняем настройки в базе данных
   try {
-    const proxyValue = useProxy === 'true' ? proxy : ''
-    const tgTokenValue = useTelegram === 'true' ? tgToken : ''
-
-    // Сохраняем настройки в БД
-    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, regNumbers, tgUserId, tgTokenValue, proxyValue)
-
-    if (isReadingActive) {
-      await new Promise((resolve) => {
-        const checkActiveInterval = setInterval(() => {
-          if (!isReadingActive) {
-            clearInterval(checkActiveInterval)
-            resolve() // Завершаем, когда чтение завершено
-          }
-        }, 100)
-      })
-    }
+    await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, tgUserId, tgToken, proxy)
 
     // Закрываем текущее соединение
     if (isPortOpen) {
-      await client.close()
+      await client.close() // Закрываем только если порт открыт
       isPortOpen = false
     }
 
+    // Перезапускаем чтение данных с новыми настройками
     await startReading()
 
     res.json({ message: 'Настройки успешно обновлены и соединение перезапущено.' })
