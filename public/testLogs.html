@@ -7,27 +7,62 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        margin: 20px;
-        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+        background-color: #1a1a1a; /* Темный фон */
+        color: white; /* Белый текст */
       }
+
+      .nav-buttons {
+        margin-bottom: 20px;
+        padding: 10px 0; /* Отступы сверху и снизу для кнопок */
+      }
+
+      .nav-button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db; /* Синий фон для кнопок */
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background-color: #2980b9; /* Темнее при наведении */
+      }
+
       h1 {
-        color: #333;
+        color: #ffffff; /* Белый текст для заголовка */
+        margin: 20px 0; /* Отступы сверху и снизу для заголовка */
       }
+
       #logContainer {
-        margin-top: 20px;
+        margin-top: 20px; /* Отступ снизу от навигации */
         line-height: 1.5;
       }
+
       .logEntry {
-        background-color: #fff;
+        background-color: #2c2c2c; /* Темный фон для логов */
         padding: 10px;
         margin: 5px 0;
-        border: 1px solid #ddd;
+        border: 1px solid #444; /* Темный бордер */
         border-radius: 5px;
       }
     </style>
   </head>
   <body>
     <h1>Логи запросов и ответов</h1>
+
+    <div class="nav-buttons">
+      <a href="logs.html" class="nav-button">Логи</a>
+      <a href="index.html" class="nav-button">Датчики</a>
+      <a href="charts.html" class="nav-button">Графики</a>
+      <a href="settings.html" class="nav-button">Настройки</a>
+    </div>
+
     <div id="logContainer"></div>
 
     <script>
