@@ -9,73 +9,122 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #1a1a1a; /* Темный фон */
-        color: white; /* Белый текст */
+        background-color: #1a1a1a;
+        color: white;
       }
+
       .container {
         max-width: 600px;
         margin: auto;
       }
+
       h1 {
         margin-bottom: 20px;
-        color: #ffffff; /* Синий цвет заголовка */
-        text-align: center; /* Центруем заголовок */
+        color: #ffffff;
+        text-align: center;
+        font-size: 2em;
       }
+
       label {
         display: block;
         margin-top: 10px;
+        font-size: 1rem;
       }
+
       input[type='text'],
       input[type='number'],
       select {
-        width: calc(100% - 10px); /* Ширина поля ввода */
+        width: calc(100% - 10px);
         padding: 10px;
         margin-top: 5px;
         border: none;
         border-radius: 4px;
-        background-color: #444; /* Темный фон для полей ввода */
-        color: white; /* Белый текст */
+        background-color: #444;
+        color: white;
+        font-size: 1rem;
       }
+
       button {
         margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #2ecc71; /* Зеленый фон для кнопки */
+        padding: 12px 20px;
+        background-color: #2ecc71;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s;
-        display: block; /* Центрируем кнопку, делаем блочным элементом */
-        margin-left: auto; /* Сброс отступа */
-        margin-right: auto; /* Центрируем кнопку */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1rem;
       }
+
       button:hover {
-        background-color: #27ae60; /* Темнее при наведении */
+        background-color: #27ae60;
       }
+
       .nav-buttons {
-        margin-bottom: 20px; /* Отступ между кнопками и содержимым */
+        margin-bottom: 20px;
         display: flex;
-        justify-content: center; /* Центрирование кнопок */
-        flex-wrap: wrap; /* Обтягивание кнопок на следующую строку при необходимости */
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
       }
+
       .nav-button {
-        padding: 10px 20px;
-        margin: 0 5px; /* Отступ между кнопками */
+        padding: 12px 16px;
+        min-width: 120px;
+        text-align: center;
         border: none;
         border-radius: 5px;
-        background-color: #3498db; /* Синий фон для кнопок */
+        background-color: #3498db;
         color: white;
         cursor: pointer;
         text-decoration: none;
         transition: background-color 0.3s;
+        font-size: 1rem;
       }
+
       .nav-button:hover {
-        background-color: #2980b9; /* Темнее при наведении */
+        background-color: #2980b9;
       }
+
       .radio-group {
-        display: flex; /* Используем flexbox для горизонтального расположения */
-        justify-content: space-between; /* Равномерное распределение между кнопками */
-        margin-top: 10px; /* Отступ сверху */
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      .radio-group label {
+        font-size: 1rem;
+        flex: 1 1 48%;
+        margin-bottom: 5px;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.5em;
+        }
+
+        label {
+          font-size: 0.95rem;
+        }
+
+        input,
+        select {
+          font-size: 0.95rem;
+        }
+
+        .nav-button,
+        button {
+          font-size: 0.9rem;
+          padding: 10px 12px;
+        }
+
+        .radio-group label {
+          font-size: 0.9rem;
+        }
       }
     </style>
   </head>
@@ -153,8 +202,8 @@
           tgUserId: document.getElementById('tgUserId').value,
           tgToken: document.getElementById('tgToken').value,
           proxy: document.getElementById('proxy').value,
-          useProxy: document.querySelector('input[name="useProxy"]:checked').value, // Получаем значение радиокнопки для прокси
-          useTelegram: document.querySelector('input[name="useTelegram"]:checked').value, // Получаем значение радиокнопки для телеграм бота
+          useProxy: document.querySelector('input[name="useProxy"]:checked').value,
+          useTelegram: document.querySelector('input[name="useTelegram"]:checked').value,
         }
 
         fetch('/api/settings', {

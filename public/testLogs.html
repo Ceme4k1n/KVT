@@ -9,47 +9,73 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #1a1a1a; /* Темный фон */
-        color: white; /* Белый текст */
+        background-color: #1a1a1a;
+        color: white;
+      }
+
+      h1 {
+        color: #ffffff;
+        margin: 20px 0;
+        text-align: center;
+        font-size: 2em;
       }
 
       .nav-buttons {
         margin-bottom: 20px;
-        padding: 10px 0; /* Отступы сверху и снизу для кнопок */
+        padding: 10px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
       }
 
       .nav-button {
-        padding: 10px 20px;
-        margin-right: 10px;
+        flex: 1 1 auto;
+        min-width: 120px;
+        text-align: center;
+        padding: 12px 16px;
         border: none;
         border-radius: 5px;
-        background-color: #3498db; /* Синий фон для кнопок */
+        background-color: #3498db;
         color: white;
         cursor: pointer;
         text-decoration: none;
         transition: background-color 0.3s;
+        font-size: 1rem;
       }
 
       .nav-button:hover {
-        background-color: #2980b9; /* Темнее при наведении */
-      }
-
-      h1 {
-        color: #ffffff; /* Белый текст для заголовка */
-        margin: 20px 0; /* Отступы сверху и снизу для заголовка */
+        background-color: #2980b9;
       }
 
       #logContainer {
-        margin-top: 20px; /* Отступ снизу от навигации */
+        margin-top: 20px;
         line-height: 1.5;
       }
 
       .logEntry {
-        background-color: #2c2c2c; /* Темный фон для логов */
+        background-color: #2c2c2c;
         padding: 10px;
         margin: 5px 0;
-        border: 1px solid #444; /* Темный бордер */
+        border: 1px solid #444;
         border-radius: 5px;
+        white-space: pre-line;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.5em;
+        }
+
+        .nav-button {
+          font-size: 0.9rem;
+          padding: 10px 12px;
+        }
+
+        .logEntry {
+          font-size: 0.9rem;
+        }
       }
     </style>
   </head>
@@ -71,24 +97,23 @@
           const response = await fetch('/api/sensors')
           const sensors = await response.json()
           const logContainer = document.getElementById('logContainer')
-          logContainer.innerHTML = '' // Очистка контейнера
+          logContainer.innerHTML = ''
 
           sensors.forEach((sensor) => {
-            // Формируем запрос и ответ для этого датчика
             const request = `Запрос: 01.03.${sensor.request.toString(16).toUpperCase()}.01`
             const response = `Ответ: 01.03.2.${sensor.response.toString(16).padStart(2, '0').toUpperCase()}.00`
 
             const logEntry = document.createElement('div')
             logEntry.className = 'logEntry'
             logEntry.innerText = `${request}\n${response}`
-            logContainer.appendChild(logEntry) // Добавляем запись в контейнер
+            logContainer.appendChild(logEntry)
           })
         } catch (error) {
           console.error('Ошибка при получении лога:', error)
         }
       }
-      setInterval(fetchLogs, 5000)
 
+      setInterval(fetchLogs, 5000)
       window.onload = fetchLogs
     </script>
   </body>

@@ -9,6 +9,8 @@ require('dotenv').config()
 const Database = require('./database')
 const db = new Database()
 
+const DEMO_MODE = true // ⚠️ Установи true для демонстрации без подключения к Modbus
+
 const app = express()
 let bot, chatId
 
@@ -44,6 +46,7 @@ async function initializeTelegramBot() {
     }
   })
 }
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
@@ -71,18 +74,20 @@ app.use(express.static('public'))
 
 const client = new ModbusRTU()
 const sensorData = []
-const sensorStatus = {} // Объект для отслеживания состояния датчиков
-const notificationTimes = {} // Объект для хранения времени последнего уведомления о превышении
-let isPortOpen = false // Добавлено: флаг для отслеживания состояния порта
-let isReadingActive = false // Флаг для отслеживания активности чтения данных
+const sensorStatus = {}
+const notificationTimes = {}
+let isPortOpen = false
+let isReadingActive = false
 let isReconnecting = false
 
 async function sendTelegramNotification(sensorName, temperature, humidity, threshold) {
+  if (!bot) return // ⬅️ добавлено
   const message = `Пороговое значение превышено для датчика ${sensorName}:\nТемпература: ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max}, MIN:${threshold.temperature_min}\nВлажность: ${humidity.toFixed(1)}% MAX:${threshold.humidity_max}, MIN:${threshold.humidity_min}`
   await bot.sendMessage(chatId, message)
 }
 
 async function sendReturningToNormalNotification(sensorName, temperature, humidity) {
+  if (!bot) return // ⬅️ добавлено
   const message = `Датчик ${sensorName} вернулся в норму:\nТемпература: ${temperature.toFixed(1)}°C\nВлажность: ${humidity.toFixed(1)}%`
   await bot.sendMessage(chatId, message)
 }
@@ -105,23 +110,19 @@ async function startReading() {
     }
     console.log(connectionSettings)
 
-    await client.connectRTU(connectionSettings.connect_rtu, {
-      baudRate: connectionSettings.baudRate,
-      parity: connectionSettings.parity,
-      stopBits: connectionSettings.stopBits,
-      dataBits: connectionSettings.dataBits,
-    })
-    isPortOpen = true
-
-    // await client.connectRTU('COM4', {
-    //   baudRate: 115200,
-    //   parity: 'none',
-    //   stopBits: 1,
-    //   dataBits: 8,
-    // })
-    console.log('Подключение к Modbus устройству успешно')
-
-    await client.setID(1)
+    if (!DEMO_MODE) {
+      await client.connectRTU(connectionSettings.connect_rtu, {
+        baudRate: connectionSettings.baudRate,
+        parity: connectionSettings.parity,
+        stopBits: connectionSettings.stopBits,
+        dataBits: connectionSettings.dataBits,
+      })
+      isPortOpen = true
+      console.log('Подключение к Modbus устройству успешно')
+      await client.setID(1)
+    } else {
+      console.log('⚠️ ДЕМО-РЕЖИМ: Подключение к Modbus отключено')
+    }
 
     setInterval(async () => {
       try {
@@ -130,56 +131,56 @@ async function startReading() {
 
         const thresholdMap = {}
         thresholds.forEach((threshold) => {
-          thresholdMap[threshold.sensor_id] = threshold // создаём карту порогов по id датчика
+          thresholdMap[threshold.sensor_id] = threshold
         })
 
         for (let i = 0; i < connectionSettings.sensors_number; i++) {
-          const temperatureAddress = 30000 + i * 2 // Температура
-          const humidityAddress = 30001 + i * 2 // Влага
-          const statusAddress = 40000 + i // Статус
+          let temperature, humidity, status, request, response
 
-          const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
-          const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
-          const statusData = await client.readHoldingRegisters(statusAddress, 1)
+          if (DEMO_MODE) {
+            temperature = +(20 + Math.random() * 10).toFixed(2)
+            humidity = +(40 + Math.random() * 20).toFixed(2)
+            status = Math.random() > 0.1 ? 1 : 0
+
+            request = `EMULATED-${i + 1}`
+            response = `EMULATED: T=${temperature} H=${humidity}`
+          } else {
+            const temperatureAddress = 30000 + i * 2
+            const humidityAddress = 30001 + i * 2
+            const statusAddress = 40000 + i
+
+            const temperatureData = await client.readHoldingRegisters(temperatureAddress, 1)
+            const humidityData = await client.readHoldingRegisters(humidityAddress, 1)
+            const statusData = await client.readHoldingRegisters(statusAddress, 1)
+
+            temperature = temperatureData.data[0] / 256
+            humidity = humidityData.data[0] / 256
+            status = (statusData.data[0] / 256) | 0
+
+            const humidityValue = humidityData.data[0]
+            const hexValue = humidityValue.toString(16).toUpperCase().padStart(4, '0')
+            const highPart = hexValue.slice(0, 2)
+            const lowPart = hexValue.slice(2)
+
+            request = `01.03.${humidityAddress.toString(16).toUpperCase()}.${connectionSettings.regNumbers.toString(16).toUpperCase()}`
+            response = `01.03.${(humidityData.data.length * 2).toString(16).toUpperCase()}.${highPart}.${lowPart}`
+          }
 
           const sensorId = i + 1
-          const temperature = temperatureData.data[0] / 256
-          const humidity = humidityData.data[0] / 256
-          const status = (statusData.data[0] / 256) | 0
-
-          const humidityValue = humidityData.data[0] // Значение из регистра
-
-          // Преобразуем значение в шестнадцатеричный формат
-          const hexValue = humidityValue.toString(16).toUpperCase().padStart(4, '0') // Обеспечиваем 4 символа
-
-          // Разбиваем на старшую и младшую часть
-          const highPart = hexValue.slice(0, 2) // Первые 2 символа (старший байт)
-          const lowPart = hexValue.slice(2) // Последние 2 символа (младший байт)
-
-          // Формирование строки запроса и ответа
-          const request = `01.03.${humidityAddress.toString(16).toUpperCase()}.${connectionSettings.regNumbers.toString(16).toUpperCase()}`
-          const response = `01.03.${(humidityData.data.length * 2).toString(16).toUpperCase()}.${highPart}.${lowPart}`
-
-          console.log(`Запрос: ${request}`)
-          console.log(`Ответ: ${response}`)
-
-          // Проверяем пороговые значения
           const threshold = thresholdMap[sensorId]
           let isOutOfBounds = false
 
           if (threshold) {
             if (temperature < threshold.temperature_min || temperature > threshold.temperature_max || humidity < threshold.humidity_min || humidity > threshold.humidity_max) {
-              isOutOfBounds = true // Если данные выходят за порог
+              isOutOfBounds = true
               logger.warn(`Пороговое значение превышено для датчика ${sensorNames[sensorId]}: Температура ${temperature.toFixed(1)}°C MAX:${threshold.temperature_max} MIN:${threshold.temperature_min}, Влажность ${humidity.toFixed(1)}% MAX:${threshold.humidity_max} MIN:${threshold.humidity_min}`)
 
-              // Проверяем, отправляли ли мы уведомление за последний час
               const now = Date.now()
               if (!notificationTimes[sensorId] || now - notificationTimes[sensorId] >= 3600000) {
                 await sendTelegramNotification(sensorNames[sensorId], temperature, humidity, threshold)
-                notificationTimes[sensorId] = now // Обновляем время последнего уведомления
+                notificationTimes[sensorId] = now
               }
 
-              // Сохраняем состояние превышения порога
               sensorStatus[sensorId] = 'exceeded'
             } else {
               if (sensorStatus[sensorId] === 'exceeded') {
@@ -205,6 +206,7 @@ async function startReading() {
             request: request,
             response: response,
           }
+
           console.log(sensorData[i])
         }
 
@@ -226,7 +228,7 @@ async function startReading() {
 
 async function reconnectModbusClient(connectionSettings) {
   let retryCount = 0
-  const maxRetries = 5 // Максимальное количество попыток
+  const maxRetries = 5
   while (retryCount < maxRetries) {
     try {
       await connectModbusClient(connectionSettings)
@@ -268,7 +270,6 @@ async function displayThresholds() {
   }
 }
 
-// Вызываем функцию
 initializeTelegramBot()
   .then(() => {
     return startReading().then(() => {
@@ -319,7 +320,7 @@ app.get('/api/measurements', async (req, res) => {
   }
 
   const timestampLimit = new Date()
-  timestampLimit.setHours(timestampLimit.getHours() - hours) // Устанавливаем временной предел
+  timestampLimit.setHours(timestampLimit.getHours() - hours)
 
   try {
     const measurements = await db.fetchMeasurementsBySensorAndTime(sensorId, timestampLimit)
@@ -358,7 +359,6 @@ app.put('/api/settings', async (req, res) => {
     const proxyValue = useProxy === 'true' ? proxy : ''
     const tgTokenValue = useTelegram === 'true' ? tgToken : ''
 
-    // Сохраняем настройки в БД
     await db.saveConnectionSettings(connect_rtu, baudRate, parity, stopBits, dataBits, regNumbers, tgUserId, tgTokenValue, proxyValue)
 
     if (isReadingActive) {
@@ -366,14 +366,13 @@ app.put('/api/settings', async (req, res) => {
         const checkActiveInterval = setInterval(() => {
           if (!isReadingActive) {
             clearInterval(checkActiveInterval)
-            resolve() // Завершаем, когда чтение завершено
+            resolve()
           }
         }, 100)
       })
     }
 
-    // Закрываем текущее соединение
-    if (isPortOpen) {
+    if (isPortOpen && !DEMO_MODE) {
       await client.close()
       isPortOpen = false
     }
@@ -393,8 +392,12 @@ app.listen(PORT, () => {
 })
 
 process.on('SIGINT', () => {
-  client.close(() => {
-    console.log('Соединение закрыто')
+  if (!DEMO_MODE) {
+    client.close(() => {
+      console.log('Соединение закрыто')
+      process.exit()
+    })
+  } else {
     process.exit()
-  })
+  }
 })

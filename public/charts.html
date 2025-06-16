@@ -10,51 +10,64 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #2c2c2c; /* Более светлый темный фон */
-        color: white; /* Белый текст */
+        background-color: #1a1a1a;
+        color: white;
       }
+
       .container {
         max-width: 1200px;
         margin: auto;
       }
+
+      h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+
       .chart-card {
-        background: #3a3a3a; /* Более светлый фон для карточек графиков */
+        background: #3a3a3a;
         border-radius: 8px;
         padding: 20px;
         margin: 20px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       }
+
       .nav-buttons {
         margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
       }
+
       .nav-button {
-        padding: 10px 20px;
-        margin-right: 10px;
+        flex: 1 1 auto;
+        padding: 12px 16px;
+        min-width: 120px;
+        text-align: center;
         border: none;
         border-radius: 5px;
-        background-color: #3498db; /* Синий фон для кнопок */
+        background-color: #3498db;
         color: white;
         cursor: pointer;
         text-decoration: none;
-      }
-      .nav-button:hover {
-        background-color: #2980b9; /* Темнее при наведении */
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
       }
 
-      .period-buttons {
-        margin-top: 10px;
+      .nav-button:hover {
+        background-color: #2980b9;
       }
-      .period-button {
-        margin-right: 5px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #3498db; /* Синий фон для кнопок выбора периода */
-        color: white;
-        cursor: pointer;
-      }
-      .period-button:hover {
-        background-color: #2980b9; /* Темнее при наведении */
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.5em;
+        }
+
+        .nav-button {
+          font-size: 0.9rem;
+          padding: 10px 12px;
+        }
       }
     </style>
   </head>
@@ -73,7 +86,7 @@
     </div>
 
     <script>
-      const charts = {} // Хранение графиков для обновления
+      const charts = {}
 
       async function fetchSensors() {
         const response = await fetch('/api/sensors')
@@ -87,41 +100,18 @@
 
       async function createChart(sensor) {
         const ctx = document.createElement('canvas')
-        ctx.id = `chart-${sensor.id}` // Уникальный id для каждого canvas
+        ctx.id = `chart-${sensor.id}`
 
         const chartCard = document.createElement('div')
         chartCard.className = 'chart-card'
         chartCard.innerHTML = `<h3>${sensor.name}</h3>`
 
-        // Добавление кнопок для выбора периода
-        const periodButtons = createPeriodButtons(sensor.id)
-        chartCard.appendChild(periodButtons)
         chartCard.appendChild(ctx)
 
-        // Загружаем данные по умолчанию
-        const defaultData = await fetchData(sensor.id, 24) // Период по умолчанию 24 часа
-        charts[sensor.id] = initializeChart(ctx, defaultData) // Сохраняем график в объекте charts
+        const defaultData = await fetchData(sensor.id, 24)
+        charts[sensor.id] = initializeChart(ctx, defaultData)
 
         return chartCard
-      }
-
-      function createPeriodButtons(sensorId) {
-        const periodContainer = document.createElement('div')
-        periodContainer.className = 'period-buttons'
-
-        const periods = [3, 6, 12, 24]
-        periods.forEach((period) => {
-          const button = document.createElement('button')
-          button.className = 'period-button'
-          button.innerText = `${period} ч`
-          button.onclick = async () => {
-            const data = await fetchData(sensorId, period)
-            updateChart(sensorId, data) // Обновляем график с новыми данными
-          }
-          periodContainer.appendChild(button)
-        })
-
-        return periodContainer
       }
 
       function initializeChart(ctx, data) {
@@ -173,16 +163,14 @@
         if (!canvas) {
           createChart({ id: sensorId, name: `Датчик ${sensorId}` }).then((chartCard) => {
             document.getElementById('chartsGrid').appendChild(chartCard)
-          }) // Создаем новый график, если он не найден
-          return // Прекращаем выполнение
+          })
+          return
         }
 
-        const ctx = canvas.getContext('2d')
         const labels = data.map((entry) => new Date(entry.timestamp).toLocaleTimeString())
         const temperatures = data.map((entry) => entry.temperature)
         const humidities = data.map((entry) => entry.humidity)
 
-        // Обновление меток времени и данных графика в существующем графике
         charts[sensorId].data.labels = labels
         charts[sensorId].data.datasets[0].data = temperatures
         charts[sensorId].data.datasets[1].data = humidities
@@ -202,13 +190,13 @@
       async function updateCharts() {
         const sensors = await fetchSensors()
         for (const sensor of sensors) {
-          const data = await fetchData(sensor.id, 24) // Обновление данных за последние 24 часа
+          const data = await fetchData(sensor.id, 24)
           updateChart(sensor.id, data)
         }
       }
 
       displayCharts()
-      setInterval(updateCharts, 5000) // Обновление графиков каждые 5 секунд
+      setInterval(updateCharts, 5000)
     </script>
   </body>
 </html>
